@@ -1,19 +1,8 @@
-import { 
-  DocumentTextIcon, 
-  ShoppingCartIcon, 
-  FolderOpenIcon, 
-  DocumentIcon,
-  ChartBarIcon,
-  UserGroupIcon,
-  CurrencyDollarIcon,
-  ClockIcon
-} from '@heroicons/react/24/outline';
-
 const stats = [
   {
     name: 'Total Quotations',
     stat: '24',
-    icon: DocumentTextIcon,
+    icon: '📄',
     change: '+12%',
     changeType: 'increase',
     color: 'blue',
@@ -21,7 +10,7 @@ const stats = [
   {
     name: 'Active Projects',
     stat: '8',
-    icon: FolderOpenIcon,
+    icon: '📁',
     change: '+2.02%',
     changeType: 'increase',
     color: 'green',
@@ -29,7 +18,7 @@ const stats = [
   {
     name: 'Pending Invoices',
     stat: '₹1,24,000',
-    icon: DocumentIcon,
+    icon: '📋',
     change: '-3.13%',
     changeType: 'decrease',
     color: 'yellow',
@@ -37,7 +26,7 @@ const stats = [
   {
     name: 'Monthly Revenue',
     stat: '₹8,45,000',
-    icon: CurrencyDollarIcon,
+    icon: '💰',
     change: '+8.2%',
     changeType: 'increase',
     color: 'purple',
@@ -129,7 +118,7 @@ export default function Dashboard() {
               <div className="flex items-center">
                 <div className="flex-shrink-0">
                   <div className={`p-3 rounded-lg ${colorClasses[item.color]}`}>
-                    <item.icon className="h-6 w-6" aria-hidden="true" />
+                    <span className="text-2xl">{item.icon}</span>
                   </div>
                 </div>
                 <div className="ml-4 w-0 flex-1">
@@ -207,7 +196,7 @@ export default function Dashboard() {
                   <div className="flex-1 min-w-0">
                     <p className="text-sm text-gray-900 dark:text-white truncate">{task.title}</p>
                     <div className="mt-1 flex items-center space-x-2">
-                      <ClockIcon className="h-4 w-4 text-gray-400" />
+                      <span className="text-gray-400">⏰</span>
                       <span className="text-xs text-gray-500 dark:text-gray-400">{task.dueDate}</span>
                     </div>
                   </div>
@@ -236,7 +225,7 @@ export default function Dashboard() {
         <div className="p-6">
           <div className="h-64 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center justify-center">
             <div className="text-center">
-              <ChartBarIcon className="h-12 w-12 text-gray-400 mx-auto mb-2" />
+              <span className="text-6xl text-gray-400 mb-2">📊</span>
               <p className="text-gray-500 dark:text-gray-400">Chart will be integrated here</p>
             </div>
           </div>

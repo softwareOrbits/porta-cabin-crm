@@ -1,5 +1,3 @@
-import { BellIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
-
 export default function Header({ title = "Dashboard" }) {
   return (
     <header className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 px-6 py-4">
@@ -14,7 +12,7 @@ export default function Header({ title = "Dashboard" }) {
           {/* Search */}
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" />
+              <span className="text-gray-400">🔍</span>
             </div>
             <input
               type="text"
@@ -25,7 +23,7 @@ export default function Header({ title = "Dashboard" }) {
 
           {/* Notifications */}
           <button className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
-            <BellIcon className="h-6 w-6" />
+            <span className="text-xl">🔔</span>
           </button>
 
           {/* User Menu */}

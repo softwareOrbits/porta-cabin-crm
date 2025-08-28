@@ -1,37 +1,19 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import {
-  HomeIcon,
-  DocumentTextIcon,
-  ShoppingCartIcon,
-  FolderOpenIcon,
-  WrenchScrewdriverIcon,
-  DocumentIcon,
-  BuildingStorefrontIcon,
-  UsersIcon,
-  UserGroupIcon,
-  CubeIcon,
-  ChartBarIcon,
-  Cog6ToothIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  SunIcon,
-  MoonIcon,
-} from '@heroicons/react/24/outline';
 
 const navigation = [
-  { name: 'Dashboard', href: '/', icon: HomeIcon },
-  { name: 'Quotations', href: '/quotations', icon: DocumentTextIcon },
-  { name: 'Sales Orders', href: '/sales-orders', icon: ShoppingCartIcon },
-  { name: 'Projects', href: '/projects', icon: FolderOpenIcon },
-  { name: 'Work Orders', href: '/work-orders', icon: WrenchScrewdriverIcon },
-  { name: 'Invoices', href: '/invoices', icon: DocumentIcon },
-  { name: 'Inventory / Store', href: '/inventory', icon: BuildingStorefrontIcon },
-  { name: 'Payroll & HR', href: '/payroll', icon: UsersIcon },
-  { name: 'Contractors', href: '/contractors', icon: UserGroupIcon },
-  { name: 'Assets', href: '/assets', icon: CubeIcon },
-  { name: 'Reports', href: '/reports', icon: ChartBarIcon },
-  { name: 'Settings', href: '/settings', icon: Cog6ToothIcon },
+  { name: 'Dashboard', href: '/', icon: '🏠' },
+  { name: 'Quotations', href: '/quotations', icon: '📄' },
+  { name: 'Sales Orders', href: '/sales-orders', icon: '🛒' },
+  { name: 'Projects', href: '/projects', icon: '📁' },
+  { name: 'Work Orders', href: '/work-orders', icon: '🔧' },
+  { name: 'Invoices', href: '/invoices', icon: '📋' },
+  { name: 'Inventory / Store', href: '/inventory', icon: '🏪' },
+  { name: 'Payroll & HR', href: '/payroll', icon: '👥' },
+  { name: 'Contractors', href: '/contractors', icon: '👷' },
+  { name: 'Assets', href: '/assets', icon: '📦' },
+  { name: 'Reports', href: '/reports', icon: '📊' },
+  { name: 'Settings', href: '/settings', icon: '⚙️' },
 ];
 
 export default function Sidebar({ collapsed, setCollapsed, darkMode, setDarkMode }) {
@@ -62,9 +44,9 @@ export default function Sidebar({ collapsed, setCollapsed, darkMode, setDarkMode
           className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400"
         >
           {collapsed ? (
-            <ChevronRightIcon className="h-5 w-5" />
+            <span className="text-lg">▶</span>
           ) : (
-            <ChevronLeftIcon className="h-5 w-5" />
+            <span className="text-lg">◀</span>
           )}
         </button>
       </div>
@@ -84,7 +66,7 @@ export default function Sidebar({ collapsed, setCollapsed, darkMode, setDarkMode
               }`}
               title={collapsed ? item.name : ''}
             >
-              <item.icon className="h-5 w-5 flex-shrink-0" />
+              <span className="text-lg flex-shrink-0">{item.icon}</span>
               {!collapsed && <span className="ml-3">{item.name}</span>}
             </Link>
           );
@@ -100,9 +82,9 @@ export default function Sidebar({ collapsed, setCollapsed, darkMode, setDarkMode
           title={collapsed ? (darkMode ? 'Light Mode' : 'Dark Mode') : ''}
         >
           {darkMode ? (
-            <SunIcon className="h-5 w-5 flex-shrink-0" />
+            <span className="text-lg">☀️</span>
           ) : (
-            <MoonIcon className="h-5 w-5 flex-shrink-0" />
+            <span className="text-lg">🌙</span>
           )}
           {!collapsed && <span className="ml-3">{darkMode ? 'Light Mode' : 'Dark Mode'}</span>}
         </button>

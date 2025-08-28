@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { PlusIcon, MagnifyingGlassIcon, EyeIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 
 const quotations = [
   {
@@ -70,7 +69,7 @@ export default function Quotations() {
         </div>
         <div className="mt-4 sm:mt-0">
           <button className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-            <PlusIcon className="h-4 w-4 mr-2" />
+            <span className="mr-2">➕</span>
             New Quotation
           </button>
         </div>
@@ -82,7 +81,7 @@ export default function Quotations() {
           {/* Search */}
           <div className="relative flex-1 max-w-md">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" />
+              <span className="text-gray-400">🔍</span>
             </div>
             <input
               type="text"
@@ -172,13 +171,13 @@ export default function Quotations() {
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <div className="flex items-center space-x-2">
                       <button className="text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-300">
-                        <EyeIcon className="h-4 w-4" />
+                        <span className="text-lg">👁️</span>
                       </button>
                       <button className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-300">
-                        <PencilIcon className="h-4 w-4" />
+                        <span className="text-lg">✏️</span>
                       </button>
                       <button className="text-red-600 dark:text-red-400 hover:text-red-900 dark:hover:text-red-300">
-                        <TrashIcon className="h-4 w-4" />
+                        <span className="text-lg">🗑️</span>
                       </button>
                     </div>
                   </td>
@@ -194,9 +193,7 @@ export default function Quotations() {
         <div className="bg-white dark:bg-gray-800 shadow-sm rounded-lg border border-gray-200 dark:border-gray-700 p-12">
           <div className="text-center">
             <div className="mx-auto h-12 w-12 text-gray-400">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
+              <span className="text-5xl">📄</span>
             </div>
             <h3 className="mt-2 text-sm font-medium text-gray-900 dark:text-white">No quotations found</h3>
             <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
@@ -204,7 +201,7 @@ export default function Quotations() {
             </p>
             <div className="mt-6">
               <button className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                <PlusIcon className="h-4 w-4 mr-2" />
+                <span className="mr-2">➕</span>
                 New Quotation
               </button>
             </div>
