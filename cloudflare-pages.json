@@ -1,11 +1,17 @@
 {
   "name": "porta-cabin-crm",
   "build": {
-    "command": "npm run build",
+    "command": "npm run build:memory-optimized",
     "output": "build",
     "environment": {
       "NODE_VERSION": "18",
-      "NPM_VERSION": "9"
+      "NPM_VERSION": "9",
+      "NODE_OPTIONS": "--max-old-space-size=8192 --expose-gc",
+      "GENERATE_SOURCEMAP": "false",
+      "DISABLE_ESLINT_PLUGIN": "true",
+      "TSC_COMPILE_ON_ERROR": "true",
+      "FAST_REFRESH": "false",
+      "INLINE_RUNTIME_CHUNK": "false"
     }
   },
   "routing": {

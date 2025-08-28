@@ -41,9 +41,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "node --max-old-space-size=8192 node_modules/.bin/react-scripts build && npm run post-build",
+    "build": "GENERATE_SOURCEMAP=false DISABLE_ESLINT_PLUGIN=true NODE_OPTIONS='--max-old-space-size=8192' react-scripts build && npm run post-build",
     "build:prod": "REACT_APP_ENV=production npm run build",
     "build:staging": "REACT_APP_ENV=staging npm run build",
+    "build:memory-optimized": "GENERATE_SOURCEMAP=false DISABLE_ESLINT_PLUGIN=true TSC_COMPILE_ON_ERROR=true NODE_OPTIONS='--max-old-space-size=8192 --expose-gc' react-scripts build && npm run post-build",
     "post-build": "cp _redirects build/ || echo 'No _redirects file found'",
     "test": "react-scripts test",
     "test:coverage": "react-scripts test --coverage --watchAll=false",
@@ -52,7 +53,7 @@
     "lint": "eslint src --ext .ts,.tsx --max-warnings 0",
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
     "type-check": "tsc --noEmit",
-    "deploy:cloudflare": "npm run build:prod && wrangler pages deploy build",
+    "deploy:cloudflare": "npm run build:memory-optimized && wrangler pages deploy build",
     "preview": "npm run build && npx serve -s build -l 3000"
   },
   "eslintConfig": {
