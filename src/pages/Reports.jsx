@@ -1,0 +1,19 @@
+export default function Reports() {
+  return (
+    <div className="space-y-6">
+      <div>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Reports</h2>
+        <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+          Generate comprehensive business reports and analytics
+        </p>
+      </div>
+      
+      <div className="bg-white dark:bg-gray-800 shadow-sm rounded-lg border border-gray-200 dark:border-gray-700 p-12">
+        <div className="text-center">
+          <h3 className="text-lg font-medium text-gray-900 dark:text-white">Reports Module</h3>
+          <p className="mt-2 text-gray-500 dark:text-gray-400">Coming soon...</p>
+        </div>
+      </div>
+    </div>
+  );
+}
