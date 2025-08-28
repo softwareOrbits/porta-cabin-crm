@@ -1,0 +1,9 @@
+# Robots.txt for Porta Cabin CRM
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Disallow: /settings/
+Allow: /
+
+# Sitemap location
+Sitemap: https://your-domain.com/sitemap.xml

@@ -1,0 +1,105 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: 'porta-cabin-crm/package-lock.json'
+
+      - name: Install dependencies
+        working-directory: ./porta-cabin-crm
+        run: npm ci
+
+      - name: Run type check
+        working-directory: ./porta-cabin-crm
+        run: npm run type-check
+
+      - name: Run linting
+        working-directory: ./porta-cabin-crm
+        run: npm run lint
+
+      - name: Run tests
+        working-directory: ./porta-cabin-crm
+        run: npm run test:coverage
+        env:
+          CI: true
+
+      - name: Build application
+        working-directory: ./porta-cabin-crm
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            npm run build:prod
+          else
+            npm run build:staging
+          fi
+        env:
+          REACT_APP_ENV: ${{ github.ref == 'refs/heads/main' && 'production' || 'staging' }}
+          REACT_APP_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
+          REACT_APP_APP_NAME: ${{ secrets.REACT_APP_APP_NAME || 'Porta Cabin CRM' }}
+          REACT_APP_COMPANY_NAME: ${{ secrets.REACT_APP_COMPANY_NAME || 'Porta Cabin Solutions' }}
+
+      - name: Deploy to Cloudflare Pages (Production)
+        if: github.ref == 'refs/heads/main'
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: porta-cabin-crm
+          directory: ./porta-cabin-crm/build
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy to Cloudflare Pages (Staging)
+        if: github.ref == 'refs/heads/develop'
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: porta-cabin-crm-staging
+          directory: ./porta-cabin-crm/build
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-files
+          path: ./porta-cabin-crm/build
+          retention-days: 30
+
+  lighthouse:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Wait for deployment
+        run: sleep 60
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v9
+        with:
+          urls: |
+            https://porta-cabin-crm.pages.dev
+          configPath: ./porta-cabin-crm/.lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true

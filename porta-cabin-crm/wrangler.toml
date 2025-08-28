@@ -1,0 +1,36 @@
+# Cloudflare Pages configuration
+name = "porta-cabin-crm"
+compatibility_date = "2024-01-01"
+
+[env.production]
+name = "porta-cabin-crm"
+compatibility_date = "2024-01-01"
+
+[env.staging]
+name = "porta-cabin-crm-staging"
+compatibility_date = "2024-01-01"
+
+# Build configuration
+[build]
+command = "npm run build"
+publish = "build"
+
+# Environment variables (these should be set in Cloudflare dashboard)
+# REACT_APP_API_BASE_URL
+# REACT_APP_ENV
+
+# Headers configuration for security
+[[headers]]
+for = "/*"
+[headers.values]
+  X-Frame-Options = "DENY"
+  X-Content-Type-Options = "nosniff"
+  X-XSS-Protection = "1; mode=block"
+  Referrer-Policy = "strict-origin-when-cross-origin"
+  Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:"
+
+# SPA routing configuration
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
