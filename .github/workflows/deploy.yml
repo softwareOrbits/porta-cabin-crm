@@ -22,28 +22,23 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
-          cache-dependency-path: 'porta-cabin-crm/package-lock.json'
+          cache-dependency-path: 'package-lock.json'
 
       - name: Install dependencies
-        working-directory: ./porta-cabin-crm
         run: npm ci
 
       - name: Run type check
-        working-directory: ./porta-cabin-crm
         run: npm run type-check
 
       - name: Run linting
-        working-directory: ./porta-cabin-crm
         run: npm run lint
 
       - name: Run tests
-        working-directory: ./porta-cabin-crm
         run: npm run test:coverage
         env:
           CI: true
 
       - name: Build application
-        working-directory: ./porta-cabin-crm
         run: |
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
             npm run build:prod
@@ -63,7 +58,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: porta-cabin-crm
-          directory: ./porta-cabin-crm/build
+          directory: ./build
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy to Cloudflare Pages (Staging)
@@ -73,14 +68,14 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: porta-cabin-crm-staging
-          directory: ./porta-cabin-crm/build
+          directory: ./build
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
           name: build-files
-          path: ./porta-cabin-crm/build
+          path: ./build
           retention-days: 30
 
   lighthouse:
@@ -100,6 +95,6 @@ jobs:
         with:
           urls: |
             https://porta-cabin-crm.pages.dev
-          configPath: ./porta-cabin-crm/.lighthouserc.json
+          configPath: ./.lighthouserc.json
           uploadArtifacts: true
           temporaryPublicStorage: true
