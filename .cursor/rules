@@ -1,0 +1,59 @@
+# Cursor Rules for Porta Cabin CRM Project
+
+These rules guide AI assistance in Cursor for developing the Porta Cabin CRM system. Follow them strictly to ensure consistency with the project scope defined in README.md and Requirements.md.
+
+## 1. Tech Stack
+- **Frontend Framework**: Use React.js (latest stable version) for building interactive UIs. Prefer functional components with hooks over class components.
+- **UI Library**: Exclusively use Material-UI (MUI) for styling and components. Follow Google's Material Design principles. Avoid alternative libraries.
+- **State Management**: Use React Context API for simple state needs. Switch to Redux only if the app grows complex (e.g., large-scale global state).
+- **Routing**: Implement client-side routing with React Router (v6 or later).
+- **Version Control**: All code must be compatible with Git. Assume repositories on GitHub or GitLab. Include meaningful commit messages.
+- **Other Tools**: Integrate with Zoho Books API where specified (expand in phases). Use Git for version control.
+
+## 2. Design and UI/UX Guidelines
+- **Reference**: Mirror the theme, flow, and design of Zoho Books web and mobile apps for familiarity.
+- **Colors**:
+  - Primary: #0066CC (Blue)
+  - Secondary: Gray tones (match Zoho Books)
+  - Background: White (light mode), Dark Gray (dark mode)
+- **Fonts**: Use clean sans-serif fonts (e.g., Roboto) to match Zoho Books typography.
+- **Consistency**: Ensure visual hierarchy aligns between web and mobile versions.
+- **Layout**:
+  - Implement a collapsible left sidebar with sections: Dashboard, Quotations, Sales Orders, Projects, Work Orders, Invoices, Inventory/Store, Payroll & HR, Contractors, Assets, Reports, Settings.
+  - Include features like active state highlights, hover effects, user profile/logout at bottom, and dark/light mode toggle.
+- **Mobile**: Design mobile app to follow Zoho Books mobile UX, ensuring responsiveness.
+
+## 3. User Roles and Permissions (RBAC)
+- Implement role-based access control (RBAC).
+- Example Roles: Admin (full access), Manager (create/view/edit but no delete), Customer Service (view/edit assigned records).
+- Visibility: Users see only their created/assigned customers, sales orders, quotations.
+- Operations: Use yellow marks for canceled/restricted actions. Restrict based on roles (view/edit/create).
+
+## 4. Key Features and Flows
+- **Quotations**: Open format (no inventory lock). Tabular entry for items (Description, Qty, Unit Price, Tax, Total). Actions: Save Draft, Send (email/PDF), Duplicate. Mirror Zoho Books interface.
+- **Sales Orders**: Require customer PO PDF upload. Auto-create linked Project on save. Set project status to open. Link accepted quotations when SO is done. Default start date = PO issue date (editable by admins). End date = delivery note sign date (locks further changes).
+- **Invoices**:
+  - Require existing Sales Order.
+  - Types: Proforma (multiple per SO, track balances/payments), Tax Invoice (final, immutable, with QR code, link to ZED portal, track payments).
+- **Digital Signatures**: Send link for customer to sign; record details if no issues.
+- **Work Orders**: Link to SO/Project. Upload drawings. Custom items, status updates.
+- **Employee/HR**: Track attendance, work hours, salaries (with allowances, advances, deductions), overtime (hourly basis).
+- **Contractors**: Enter details, assign to open projects, scope of work, payments with approval.
+- **Assets**: Enter details, generate barcodes, calculate depreciation (linear/exponential/non-linear), track expenses.
+- **Audit Trail**: Log all critical actions (logins, changes, approvals) with timestamp, user, description, before/after states. Visible to admins.
+
+## 5. General Coding Conventions
+- **Code Style**: Follow ESLint with Airbnb style guide or similar. Use Prettier for formatting. Enforce consistent indentation (2 spaces).
+- **Components**: Keep components small and reusable. Use TypeScript for type safety if applicable (not specified, but recommended).
+- **Error Handling**: Implement robust error handling, especially for integrations (e.g., Zoho, ZED). Display user-friendly messages.
+- **Performance**: Optimize for large datasets (e.g., reports, lists). Use lazy loading where needed.
+- **Security**: Implement authentication, authorization checks. Sanitize inputs to prevent vulnerabilities.
+- **Testing**: Write unit tests with Jest and React Testing Library for components and logic.
+- **Documentation**: Comment code thoroughly. Update README.md with any new setup instructions.
+- **Git Integration**: When connecting to GitHub, ensure branches are used properly (e.g., feature branches, main for production).
+
+## 6. AI Assistance Guidelines
+- When generating code, always reference these rules.
+- Prioritize features in order: Core flows (Quotations, SO, Projects, Invoices) before secondary (HR, Assets).
+- If unsure, ask for clarification rather than assuming.
+- Ensure all generated code is runnable and follows the tech stack.
