@@ -10,9 +10,11 @@ const navigation = [
   { name: 'Invoices', href: '/invoices', icon: '📋' },
   { name: 'Inventory / Store', href: '/inventory', icon: '🏪' },
   { name: 'Payroll & HR', href: '/payroll', icon: '👥' },
+  { name: 'Employees', href: '/employees', icon: '👤' },
   { name: 'Contractors', href: '/contractors', icon: '👷' },
   { name: 'Assets', href: '/assets', icon: '📦' },
   { name: 'Reports', href: '/reports', icon: '📊' },
+  { name: 'Audit Trail', href: '/audit-trail', icon: '📝' },
   { name: 'Settings', href: '/settings', icon: '⚙️' },
 ];
 

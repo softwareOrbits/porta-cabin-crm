@@ -42,6 +42,20 @@ const reportTypes = [
     description: 'Track invoice status and payment collection',
     icon: '🧾',
     category: 'Financial'
+  },
+  {
+    id: 'employees',
+    title: 'Employee Report',
+    description: 'Analyze employee performance and attendance',
+    icon: '👤',
+    category: 'HR'
+  },
+  {
+    id: 'payroll',
+    title: 'Payroll Report',
+    description: 'Review salary, overtime, and deductions',
+    icon: '💸',
+    category: 'HR'
   }
 ];
 
@@ -93,6 +107,99 @@ const sampleData = {
       { name: 'Steel Structure Solutions', contracts: 5, value: 185000, rating: 5.0 },
       { name: 'Advanced Electrical Works', contracts: 3, value: 125000, rating: 4.5 },
       { name: 'Pro Painters & Finishers', contracts: 4, value: 95000, rating: 4.2 }
+    ]
+  },
+  financial: {
+    totalRevenue: 2450000,
+    totalExpenses: 1850000,
+    netProfit: 600000,
+    profitMargin: 24.5,
+    cashFlow: 750000,
+    monthlyData: [
+      { month: 'Jan', revenue: 350000, expenses: 280000, profit: 70000 },
+      { month: 'Feb', revenue: 420000, expenses: 320000, profit: 100000 },
+      { month: 'Mar', revenue: 380000, expenses: 295000, profit: 85000 },
+      { month: 'Apr', revenue: 450000, expenses: 340000, profit: 110000 },
+      { month: 'May', revenue: 480000, expenses: 360000, profit: 120000 },
+      { month: 'Jun', revenue: 370000, expenses: 255000, profit: 115000 }
+    ],
+    expenseBreakdown: [
+      { category: 'Material Costs', amount: 850000, percentage: 46 },
+      { category: 'Labor Costs', amount: 520000, percentage: 28 },
+      { category: 'Equipment', amount: 280000, percentage: 15 },
+      { category: 'Overhead', amount: 200000, percentage: 11 }
+    ],
+    revenueStreams: [
+      { source: 'Cabin Sales', amount: 1450000, percentage: 59 },
+      { source: 'Installation Services', amount: 650000, percentage: 27 },
+      { source: 'Maintenance', amount: 350000, percentage: 14 }
+    ]
+  },
+  invoice: {
+    totalInvoices: 45,
+    paidInvoices: 32,
+    pendingInvoices: 10,
+    overdueInvoices: 3,
+    totalValue: 2250000,
+    paidValue: 1850000,
+    pendingValue: 300000,
+    overdueValue: 100000,
+    averagePaymentTime: 18,
+    monthlyInvoicing: [
+      { month: 'Jan', invoices: 8, value: 420000, collected: 380000 },
+      { month: 'Feb', invoices: 6, value: 350000, collected: 350000 },
+      { month: 'Mar', invoices: 9, value: 480000, collected: 450000 },
+      { month: 'Apr', invoices: 7, value: 385000, collected: 320000 },
+      { month: 'May', invoices: 8, value: 425000, collected: 350000 },
+      { month: 'Jun', invoices: 7, value: 390000, collected: 0 }
+    ],
+    invoicesByStatus: [
+      { status: 'Paid', count: 32, value: 1850000, color: 'bg-green-500' },
+      { status: 'Pending', count: 10, value: 300000, color: 'bg-yellow-500' },
+      { status: 'Overdue', count: 3, value: 100000, color: 'bg-red-500' }
+    ],
+    topCustomers: [
+      { name: 'ABC Industries', invoices: 8, value: 650000, outstanding: 0 },
+      { name: 'XYZ Corporation', invoices: 6, value: 480000, outstanding: 50000 },
+      { name: 'Tech Solutions Ltd', invoices: 5, value: 325000, outstanding: 25000 }
+    ]
+  },
+  employees: {
+    totalEmployees: 25,
+    activeEmployees: 24,
+    onLeaveEmployees: 1,
+    averageAttendance: 92.5,
+    totalWorkingHours: 4800,
+    overtimeHours: 320,
+    departmentStats: [
+      { department: 'Operations', employees: 12, attendance: 94.2 },
+      { department: 'Quality Assurance', employees: 5, attendance: 96.8 },
+      { department: 'Installation', employees: 6, attendance: 89.5 },
+      { department: 'Administration', employees: 2, attendance: 98.0 }
+    ],
+    performanceMetrics: [
+      { employee: 'Ahmed Hassan', performance: 95, projects: 8, efficiency: 'Excellent' },
+      { employee: 'Priya Sharma', performance: 92, projects: 6, efficiency: 'Very Good' },
+      { employee: 'Mohammed Ali', performance: 88, projects: 10, efficiency: 'Good' }
+    ]
+  },
+  payroll: {
+    totalPayroll: 850000,
+    averageSalary: 34000,
+    totalOvertime: 125000,
+    totalDeductions: 85000,
+    netPayroll: 890000,
+    monthlyTrend: [
+      { month: 'Jan', basic: 800000, overtime: 95000, deductions: 75000 },
+      { month: 'Feb', basic: 820000, overtime: 105000, deductions: 80000 },
+      { month: 'Mar', basic: 830000, overtime: 115000, deductions: 85000 },
+      { month: 'Apr', basic: 850000, overtime: 125000, deductions: 85000 }
+    ],
+    salaryDistribution: [
+      { range: '15,000 - 25,000', employees: 8, percentage: 32 },
+      { range: '25,000 - 35,000', employees: 10, percentage: 40 },
+      { range: '35,000 - 45,000', employees: 5, percentage: 20 },
+      { range: '45,000+', employees: 2, percentage: 8 }
     ]
   }
 };
@@ -282,6 +389,293 @@ export default function Reports() {
                       </div>
                     </div>
                     <span className="font-medium text-green-600 dark:text-green-400">₹{contractor.value.toLocaleString()}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'financial':
+        return (
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                <h3 className="text-sm font-medium text-green-600 dark:text-green-400">Total Revenue</h3>
+                <p className="text-2xl font-bold text-green-900 dark:text-green-100">₹{data.totalRevenue.toLocaleString()}</p>
+              </div>
+              <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+                <h3 className="text-sm font-medium text-red-600 dark:text-red-400">Total Expenses</h3>
+                <p className="text-2xl font-bold text-red-900 dark:text-red-100">₹{data.totalExpenses.toLocaleString()}</p>
+              </div>
+              <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                <h3 className="text-sm font-medium text-blue-600 dark:text-blue-400">Net Profit</h3>
+                <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">₹{data.netProfit.toLocaleString()}</p>
+              </div>
+              <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                <h3 className="text-sm font-medium text-purple-600 dark:text-purple-400">Profit Margin</h3>
+                <p className="text-2xl font-bold text-purple-900 dark:text-purple-100">{data.profitMargin}%</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Expense Breakdown</h3>
+                <div className="space-y-3">
+                  {data.expenseBreakdown.map((expense, index) => (
+                    <div key={index} className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 bg-blue-500 rounded mr-3"></div>
+                        <span className="text-gray-900 dark:text-white">{expense.category}</span>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-gray-900 dark:text-white font-medium">₹{expense.amount.toLocaleString()}</div>
+                        <div className="text-sm text-gray-500 dark:text-gray-400">{expense.percentage}%</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Revenue Streams</h3>
+                <div className="space-y-3">
+                  {data.revenueStreams.map((stream, index) => (
+                    <div key={index} className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 bg-green-500 rounded mr-3"></div>
+                        <span className="text-gray-900 dark:text-white">{stream.source}</span>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-gray-900 dark:text-white font-medium">₹{stream.amount.toLocaleString()}</div>
+                        <div className="text-sm text-gray-500 dark:text-gray-400">{stream.percentage}%</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Monthly Performance</h3>
+              <div className="grid grid-cols-6 gap-4">
+                {data.monthlyData.map((month, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-sm font-medium text-gray-900 dark:text-white">{month.month}</div>
+                    <div className="mt-2 space-y-1">
+                      <div className="text-xs text-green-600 dark:text-green-400">₹{(month.revenue / 1000)}K</div>
+                      <div className="text-xs text-red-600 dark:text-red-400">₹{(month.expenses / 1000)}K</div>
+                      <div className="text-xs text-blue-600 dark:text-blue-400 font-medium">₹{(month.profit / 1000)}K</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'invoice':
+        return (
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                <h3 className="text-sm font-medium text-blue-600 dark:text-blue-400">Total Invoices</h3>
+                <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">{data.totalInvoices}</p>
+              </div>
+              <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                <h3 className="text-sm font-medium text-green-600 dark:text-green-400">Total Value</h3>
+                <p className="text-2xl font-bold text-green-900 dark:text-green-100">₹{data.totalValue.toLocaleString()}</p>
+              </div>
+              <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
+                <h3 className="text-sm font-medium text-yellow-600 dark:text-yellow-400">Pending Amount</h3>
+                <p className="text-2xl font-bold text-yellow-900 dark:text-yellow-100">₹{data.pendingValue.toLocaleString()}</p>
+              </div>
+              <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+                <h3 className="text-sm font-medium text-red-600 dark:text-red-400">Overdue Amount</h3>
+                <p className="text-2xl font-bold text-red-900 dark:text-red-100">₹{data.overdueValue.toLocaleString()}</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Invoice Status Distribution</h3>
+                <div className="space-y-3">
+                  {data.invoicesByStatus.map((status, index) => (
+                    <div key={index} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded">
+                      <div className="flex items-center">
+                        <div className={`w-4 h-4 ${status.color} rounded mr-3`}></div>
+                        <span className="text-gray-900 dark:text-white">{status.status}</span>
+                        <span className="ml-2 text-sm text-gray-500 dark:text-gray-400">({status.count})</span>
+                      </div>
+                      <span className="font-medium text-gray-900 dark:text-white">₹{status.value.toLocaleString()}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Top Customers by Value</h3>
+                <div className="space-y-3">
+                  {data.topCustomers.map((customer, index) => (
+                    <div key={index} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded">
+                      <div>
+                        <span className="font-medium text-gray-900 dark:text-white">{customer.name}</span>
+                        <div className="text-sm text-gray-500 dark:text-gray-400">
+                          {customer.invoices} invoices • Outstanding: ₹{customer.outstanding.toLocaleString()}
+                        </div>
+                      </div>
+                      <span className="font-medium text-green-600 dark:text-green-400">₹{customer.value.toLocaleString()}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Monthly Invoice Performance</h3>
+              <div className="grid grid-cols-6 gap-4">
+                {data.monthlyInvoicing.map((month, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-sm font-medium text-gray-900 dark:text-white">{month.month}</div>
+                    <div className="mt-2 space-y-1">
+                      <div className="text-xs text-blue-600 dark:text-blue-400">{month.invoices} invoices</div>
+                      <div className="text-xs text-gray-600 dark:text-gray-400">₹{(month.value / 1000)}K billed</div>
+                      <div className="text-xs text-green-600 dark:text-green-400">₹{(month.collected / 1000)}K collected</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white">Key Metrics</h3>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="text-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{data.averagePaymentTime}</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Average Payment Time (Days)</div>
+                </div>
+                <div className="text-center p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">{((data.paidValue / data.totalValue) * 100).toFixed(1)}%</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Collection Rate</div>
+                </div>
+                <div className="text-center p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                  <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">₹{(data.totalValue / data.totalInvoices).toLocaleString()}</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Average Invoice Value</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'employees':
+        return (
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                <h3 className="text-sm font-medium text-blue-600 dark:text-blue-400">Total Employees</h3>
+                <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">{data.totalEmployees}</p>
+              </div>
+              <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                <h3 className="text-sm font-medium text-green-600 dark:text-green-400">Active Employees</h3>
+                <p className="text-2xl font-bold text-green-900 dark:text-green-100">{data.activeEmployees}</p>
+              </div>
+              <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                <h3 className="text-sm font-medium text-purple-600 dark:text-purple-400">Average Attendance</h3>
+                <p className="text-2xl font-bold text-purple-900 dark:text-purple-100">{data.averageAttendance}%</p>
+              </div>
+              <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
+                <h3 className="text-sm font-medium text-yellow-600 dark:text-yellow-400">Overtime Hours</h3>
+                <p className="text-2xl font-bold text-yellow-900 dark:text-yellow-100">{data.overtimeHours}</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Department Statistics</h3>
+                <div className="space-y-3">
+                  {data.departmentStats.map((dept, index) => (
+                    <div key={index} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded">
+                      <div>
+                        <span className="font-medium text-gray-900 dark:text-white">{dept.department}</span>
+                        <div className="text-sm text-gray-500 dark:text-gray-400">{dept.employees} employees</div>
+                      </div>
+                      <span className="font-medium text-green-600 dark:text-green-400">{dept.attendance}%</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Top Performers</h3>
+                <div className="space-y-3">
+                  {data.performanceMetrics.map((employee, index) => (
+                    <div key={index} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded">
+                      <div>
+                        <span className="font-medium text-gray-900 dark:text-white">{employee.employee}</span>
+                        <div className="text-sm text-gray-500 dark:text-gray-400">{employee.projects} projects • {employee.efficiency}</div>
+                      </div>
+                      <span className="font-medium text-blue-600 dark:text-blue-400">{employee.performance}%</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'payroll':
+        return (
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                <h3 className="text-sm font-medium text-green-600 dark:text-green-400">Total Payroll</h3>
+                <p className="text-2xl font-bold text-green-900 dark:text-green-100">₹{data.totalPayroll.toLocaleString()}</p>
+              </div>
+              <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                <h3 className="text-sm font-medium text-blue-600 dark:text-blue-400">Average Salary</h3>
+                <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">₹{data.averageSalary.toLocaleString()}</p>
+              </div>
+              <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                <h3 className="text-sm font-medium text-purple-600 dark:text-purple-400">Total Overtime</h3>
+                <p className="text-2xl font-bold text-purple-900 dark:text-purple-100">₹{data.totalOvertime.toLocaleString()}</p>
+              </div>
+              <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+                <h3 className="text-sm font-medium text-red-600 dark:text-red-400">Total Deductions</h3>
+                <p className="text-2xl font-bold text-red-900 dark:text-red-100">₹{data.totalDeductions.toLocaleString()}</p>
+              </div>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Salary Distribution</h3>
+              <div className="space-y-3">
+                {data.salaryDistribution.map((range, index) => (
+                  <div key={index} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded">
+                    <div className="flex items-center">
+                      <div className="w-4 h-4 bg-blue-500 rounded mr-3"></div>
+                      <span className="text-gray-900 dark:text-white">{range.range}</span>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-gray-900 dark:text-white font-medium">{range.employees} employees</div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400">{range.percentage}%</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Monthly Payroll Trend</h3>
+              <div className="grid grid-cols-4 gap-4">
+                {data.monthlyTrend.map((month, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-sm font-medium text-gray-900 dark:text-white">{month.month}</div>
+                    <div className="mt-2 space-y-1">
+                      <div className="text-xs text-green-600 dark:text-green-400">Basic: ₹{(month.basic / 1000)}K</div>
+                      <div className="text-xs text-blue-600 dark:text-blue-400">OT: ₹{(month.overtime / 1000)}K</div>
+                      <div className="text-xs text-red-600 dark:text-red-400">Deductions: ₹{(month.deductions / 1000)}K</div>
+                    </div>
                   </div>
                 ))}
               </div>
