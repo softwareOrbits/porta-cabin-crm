@@ -54,7 +54,7 @@ export default function Sidebar({ collapsed, setCollapsed, darkMode, setDarkMode
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 p-3 space-y-1">
+      <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
         {navigation.map((item) => {
           const isActive = location.pathname === item.href;
           return (

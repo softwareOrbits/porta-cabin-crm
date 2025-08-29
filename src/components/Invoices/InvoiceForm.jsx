@@ -244,7 +244,7 @@ const InvoiceForm = ({ invoice = null, onSave, onCancel }) => {
               <option value="">Select a sales order</option>
               {availableSalesOrders.map((salesOrder) => (
                 <option key={salesOrder.id} value={salesOrder.id}>
-                  {salesOrder.id} - {salesOrder.customer} (₹{salesOrder.amount.toLocaleString()})
+                  {salesOrder.id} - {salesOrder.customer} (${salesOrder.amount.toLocaleString()})
                 </option>
               ))}
             </select>
@@ -361,7 +361,7 @@ const InvoiceForm = ({ invoice = null, onSave, onCancel }) => {
                       className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                     />
                     <span className="ml-2 text-sm text-gray-900 dark:text-white">
-                      {proforma.id} - ₹{proforma.amount.toLocaleString()} 
+                      {proforma.id} - ${proforma.amount.toLocaleString()} 
                       {proforma.paid && <span className="text-green-600 ml-1">(Paid)</span>}
                     </span>
                   </label>
@@ -489,7 +489,7 @@ const InvoiceForm = ({ invoice = null, onSave, onCancel }) => {
                     </td>
                     <td className="px-4 py-3">
                       <span className="text-sm font-medium text-gray-900 dark:text-white">
-                        ₹{item.total.toFixed(2)}
+                        ${item.total.toFixed(2)}
                       </span>
                     </td>
                     <td className="px-4 py-3">
@@ -515,25 +515,25 @@ const InvoiceForm = ({ invoice = null, onSave, onCancel }) => {
             <div className="w-72 space-y-2">
               <div className="flex justify-between">
                 <span className="text-sm text-gray-600 dark:text-gray-400">Subtotal:</span>
-                <span className="text-sm font-medium text-gray-900 dark:text-white">₹{subtotal.toFixed(2)}</span>
+                <span className="text-sm font-medium text-gray-900 dark:text-white">${subtotal.toFixed(2)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-sm text-gray-600 dark:text-gray-400">Total Tax:</span>
-                <span className="text-sm font-medium text-gray-900 dark:text-white">₹{totalTax.toFixed(2)}</span>
+                <span className="text-sm font-medium text-gray-900 dark:text-white">${totalTax.toFixed(2)}</span>
               </div>
               <div className="flex justify-between border-t border-gray-200 dark:border-gray-700 pt-2">
                 <span className="text-base font-medium text-gray-900 dark:text-white">Total:</span>
-                <span className="text-lg font-bold text-gray-900 dark:text-white">₹{total.toFixed(2)}</span>
+                <span className="text-lg font-bold text-gray-900 dark:text-white">${total.toFixed(2)}</span>
               </div>
               {formData.paymentReceived > 0 && (
                 <>
                   <div className="flex justify-between">
                     <span className="text-sm text-gray-600 dark:text-gray-400">Payment Received:</span>
-                    <span className="text-sm font-medium text-green-600 dark:text-green-400">₹{formData.paymentReceived.toFixed(2)}</span>
+                    <span className="text-sm font-medium text-green-600 dark:text-green-400">${formData.paymentReceived.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between border-t border-gray-200 dark:border-gray-700 pt-2">
                     <span className="text-base font-medium text-gray-900 dark:text-white">Remaining Balance:</span>
-                    <span className="text-lg font-bold text-red-600 dark:text-red-400">₹{remainingBalance.toFixed(2)}</span>
+                    <span className="text-lg font-bold text-red-600 dark:text-red-400">${remainingBalance.toFixed(2)}</span>
                   </div>
                 </>
               )}

@@ -227,7 +227,7 @@ export default function Reports() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-blue-600 dark:text-blue-400">Total Revenue</h3>
-                <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">₹{data.totalRevenue.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">${data.totalRevenue.toLocaleString()}</p>
               </div>
               <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-green-600 dark:text-green-400">Total Orders</h3>
@@ -235,7 +235,7 @@ export default function Reports() {
               </div>
               <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-purple-600 dark:text-purple-400">Avg Order Value</h3>
-                <p className="text-2xl font-bold text-purple-900 dark:text-purple-100">₹{data.averageOrderValue.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-purple-900 dark:text-purple-100">${data.averageOrderValue.toLocaleString()}</p>
               </div>
               <div className="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-orange-600 dark:text-orange-400">Monthly Growth</h3>
@@ -250,7 +250,7 @@ export default function Reports() {
                   <div key={index} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded">
                     <span className="font-medium">{item.month}</span>
                     <div className="flex items-center space-x-4">
-                      <span className="text-green-600 dark:text-green-400">₹{item.revenue.toLocaleString()}</span>
+                      <span className="text-green-600 dark:text-green-400">${item.revenue.toLocaleString()}</span>
                       <span className="text-blue-600 dark:text-blue-400">{item.orders} orders</span>
                     </div>
                   </div>
@@ -289,7 +289,7 @@ export default function Reports() {
                   <div key={index} className="p-4 border border-gray-200 dark:border-gray-600 rounded-lg">
                     <div className="flex justify-between items-start mb-2">
                       <h4 className="font-medium text-gray-900 dark:text-white">{project.name}</h4>
-                      <span className="text-sm font-medium text-green-600 dark:text-green-400">₹{project.value.toLocaleString()}</span>
+                      <span className="text-sm font-medium text-green-600 dark:text-green-400">${project.value.toLocaleString()}</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className={`px-2 py-1 rounded-full text-xs font-medium ${
@@ -326,7 +326,7 @@ export default function Reports() {
               </div>
               <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-green-600 dark:text-green-400">Total Value</h3>
-                <p className="text-2xl font-bold text-green-900 dark:text-green-100">₹{data.totalValue.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-green-900 dark:text-green-100">${data.totalValue.toLocaleString()}</p>
               </div>
               <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-yellow-600 dark:text-yellow-400">Low Stock</h3>
@@ -347,7 +347,7 @@ export default function Reports() {
                       <span className="font-medium text-gray-900 dark:text-white">{category.name}</span>
                       <span className="ml-2 text-sm text-gray-500 dark:text-gray-400">({category.items} items)</span>
                     </div>
-                    <span className="font-medium text-green-600 dark:text-green-400">₹{category.value.toLocaleString()}</span>
+                    <span className="font-medium text-green-600 dark:text-green-400">${category.value.toLocaleString()}</span>
                   </div>
                 ))}
               </div>
@@ -369,11 +369,11 @@ export default function Reports() {
               </div>
               <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-purple-600 dark:text-purple-400">Contract Value</h3>
-                <p className="text-2xl font-bold text-purple-900 dark:text-purple-100">₹{data.totalContractValue.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-purple-900 dark:text-purple-100">${data.totalContractValue.toLocaleString()}</p>
               </div>
               <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-red-600 dark:text-red-400">Pending Payments</h3>
-                <p className="text-2xl font-bold text-red-900 dark:text-red-100">₹{data.pendingPayments.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-red-900 dark:text-red-100">${data.pendingPayments.toLocaleString()}</p>
               </div>
             </div>
 
@@ -388,7 +388,7 @@ export default function Reports() {
                         {contractor.contracts} contracts • Rating: {contractor.rating}/5.0
                       </div>
                     </div>
-                    <span className="font-medium text-green-600 dark:text-green-400">₹{contractor.value.toLocaleString()}</span>
+                    <span className="font-medium text-green-600 dark:text-green-400">${contractor.value.toLocaleString()}</span>
                   </div>
                 ))}
               </div>
@@ -402,15 +402,15 @@ export default function Reports() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-green-600 dark:text-green-400">Total Revenue</h3>
-                <p className="text-2xl font-bold text-green-900 dark:text-green-100">₹{data.totalRevenue.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-green-900 dark:text-green-100">${data.totalRevenue.toLocaleString()}</p>
               </div>
               <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-red-600 dark:text-red-400">Total Expenses</h3>
-                <p className="text-2xl font-bold text-red-900 dark:text-red-100">₹{data.totalExpenses.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-red-900 dark:text-red-100">${data.totalExpenses.toLocaleString()}</p>
               </div>
               <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-blue-600 dark:text-blue-400">Net Profit</h3>
-                <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">₹{data.netProfit.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">${data.netProfit.toLocaleString()}</p>
               </div>
               <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-purple-600 dark:text-purple-400">Profit Margin</h3>
@@ -429,7 +429,7 @@ export default function Reports() {
                         <span className="text-gray-900 dark:text-white">{expense.category}</span>
                       </div>
                       <div className="text-right">
-                        <div className="text-gray-900 dark:text-white font-medium">₹{expense.amount.toLocaleString()}</div>
+                        <div className="text-gray-900 dark:text-white font-medium">${expense.amount.toLocaleString()}</div>
                         <div className="text-sm text-gray-500 dark:text-gray-400">{expense.percentage}%</div>
                       </div>
                     </div>
@@ -447,7 +447,7 @@ export default function Reports() {
                         <span className="text-gray-900 dark:text-white">{stream.source}</span>
                       </div>
                       <div className="text-right">
-                        <div className="text-gray-900 dark:text-white font-medium">₹{stream.amount.toLocaleString()}</div>
+                        <div className="text-gray-900 dark:text-white font-medium">${stream.amount.toLocaleString()}</div>
                         <div className="text-sm text-gray-500 dark:text-gray-400">{stream.percentage}%</div>
                       </div>
                     </div>
@@ -463,9 +463,9 @@ export default function Reports() {
                   <div key={index} className="text-center">
                     <div className="text-sm font-medium text-gray-900 dark:text-white">{month.month}</div>
                     <div className="mt-2 space-y-1">
-                      <div className="text-xs text-green-600 dark:text-green-400">₹{(month.revenue / 1000)}K</div>
-                      <div className="text-xs text-red-600 dark:text-red-400">₹{(month.expenses / 1000)}K</div>
-                      <div className="text-xs text-blue-600 dark:text-blue-400 font-medium">₹{(month.profit / 1000)}K</div>
+                      <div className="text-xs text-green-600 dark:text-green-400">${(month.revenue / 1000)}K</div>
+                      <div className="text-xs text-red-600 dark:text-red-400">${(month.expenses / 1000)}K</div>
+                      <div className="text-xs text-blue-600 dark:text-blue-400 font-medium">${(month.profit / 1000)}K</div>
                     </div>
                   </div>
                 ))}
@@ -484,15 +484,15 @@ export default function Reports() {
               </div>
               <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-green-600 dark:text-green-400">Total Value</h3>
-                <p className="text-2xl font-bold text-green-900 dark:text-green-100">₹{data.totalValue.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-green-900 dark:text-green-100">${data.totalValue.toLocaleString()}</p>
               </div>
               <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-yellow-600 dark:text-yellow-400">Pending Amount</h3>
-                <p className="text-2xl font-bold text-yellow-900 dark:text-yellow-100">₹{data.pendingValue.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-yellow-900 dark:text-yellow-100">${data.pendingValue.toLocaleString()}</p>
               </div>
               <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-red-600 dark:text-red-400">Overdue Amount</h3>
-                <p className="text-2xl font-bold text-red-900 dark:text-red-100">₹{data.overdueValue.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-red-900 dark:text-red-100">${data.overdueValue.toLocaleString()}</p>
               </div>
             </div>
 
@@ -507,7 +507,7 @@ export default function Reports() {
                         <span className="text-gray-900 dark:text-white">{status.status}</span>
                         <span className="ml-2 text-sm text-gray-500 dark:text-gray-400">({status.count})</span>
                       </div>
-                      <span className="font-medium text-gray-900 dark:text-white">₹{status.value.toLocaleString()}</span>
+                      <span className="font-medium text-gray-900 dark:text-white">${status.value.toLocaleString()}</span>
                     </div>
                   ))}
                 </div>
@@ -521,10 +521,10 @@ export default function Reports() {
                       <div>
                         <span className="font-medium text-gray-900 dark:text-white">{customer.name}</span>
                         <div className="text-sm text-gray-500 dark:text-gray-400">
-                          {customer.invoices} invoices • Outstanding: ₹{customer.outstanding.toLocaleString()}
+                          {customer.invoices} invoices • Outstanding: ${customer.outstanding.toLocaleString()}
                         </div>
                       </div>
-                      <span className="font-medium text-green-600 dark:text-green-400">₹{customer.value.toLocaleString()}</span>
+                      <span className="font-medium text-green-600 dark:text-green-400">${customer.value.toLocaleString()}</span>
                     </div>
                   ))}
                 </div>
@@ -539,8 +539,8 @@ export default function Reports() {
                     <div className="text-sm font-medium text-gray-900 dark:text-white">{month.month}</div>
                     <div className="mt-2 space-y-1">
                       <div className="text-xs text-blue-600 dark:text-blue-400">{month.invoices} invoices</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">₹{(month.value / 1000)}K billed</div>
-                      <div className="text-xs text-green-600 dark:text-green-400">₹{(month.collected / 1000)}K collected</div>
+                      <div className="text-xs text-gray-600 dark:text-gray-400">${(month.value / 1000)}K billed</div>
+                      <div className="text-xs text-green-600 dark:text-green-400">${(month.collected / 1000)}K collected</div>
                     </div>
                   </div>
                 ))}
@@ -561,7 +561,7 @@ export default function Reports() {
                   <div className="text-sm text-gray-600 dark:text-gray-400">Collection Rate</div>
                 </div>
                 <div className="text-center p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-                  <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">₹{(data.totalValue / data.totalInvoices).toLocaleString()}</div>
+                  <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">${(data.totalValue / data.totalInvoices).toLocaleString()}</div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">Average Invoice Value</div>
                 </div>
               </div>
@@ -631,19 +631,19 @@ export default function Reports() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-green-600 dark:text-green-400">Total Payroll</h3>
-                <p className="text-2xl font-bold text-green-900 dark:text-green-100">₹{data.totalPayroll.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-green-900 dark:text-green-100">${data.totalPayroll.toLocaleString()}</p>
               </div>
               <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-blue-600 dark:text-blue-400">Average Salary</h3>
-                <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">₹{data.averageSalary.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">${data.averageSalary.toLocaleString()}</p>
               </div>
               <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-purple-600 dark:text-purple-400">Total Overtime</h3>
-                <p className="text-2xl font-bold text-purple-900 dark:text-purple-100">₹{data.totalOvertime.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-purple-900 dark:text-purple-100">${data.totalOvertime.toLocaleString()}</p>
               </div>
               <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-red-600 dark:text-red-400">Total Deductions</h3>
-                <p className="text-2xl font-bold text-red-900 dark:text-red-100">₹{data.totalDeductions.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-red-900 dark:text-red-100">${data.totalDeductions.toLocaleString()}</p>
               </div>
             </div>
 
@@ -672,9 +672,9 @@ export default function Reports() {
                   <div key={index} className="text-center">
                     <div className="text-sm font-medium text-gray-900 dark:text-white">{month.month}</div>
                     <div className="mt-2 space-y-1">
-                      <div className="text-xs text-green-600 dark:text-green-400">Basic: ₹{(month.basic / 1000)}K</div>
-                      <div className="text-xs text-blue-600 dark:text-blue-400">OT: ₹{(month.overtime / 1000)}K</div>
-                      <div className="text-xs text-red-600 dark:text-red-400">Deductions: ₹{(month.deductions / 1000)}K</div>
+                      <div className="text-xs text-green-600 dark:text-green-400">Basic: ${(month.basic / 1000)}K</div>
+                      <div className="text-xs text-blue-600 dark:text-blue-400">OT: ${(month.overtime / 1000)}K</div>
+                      <div className="text-xs text-red-600 dark:text-red-400">Deductions: ${(month.deductions / 1000)}K</div>
                     </div>
                   </div>
                 ))}

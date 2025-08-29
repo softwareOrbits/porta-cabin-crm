@@ -312,7 +312,7 @@ const QuotationForm = ({ quotation = null, onSave, onCancel }) => {
                     </td>
                     <td className="px-4 py-3">
                       <span className="text-sm font-medium text-gray-900 dark:text-white">
-                        ₹{item.total.toFixed(2)}
+                        ${item.total.toFixed(2)}
                       </span>
                     </td>
                     <td className="px-4 py-3">
@@ -338,15 +338,15 @@ const QuotationForm = ({ quotation = null, onSave, onCancel }) => {
             <div className="w-72 space-y-2">
               <div className="flex justify-between">
                 <span className="text-sm text-gray-600 dark:text-gray-400">Subtotal:</span>
-                <span className="text-sm font-medium text-gray-900 dark:text-white">₹{subtotal.toFixed(2)}</span>
+                <span className="text-sm font-medium text-gray-900 dark:text-white">${subtotal.toFixed(2)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-sm text-gray-600 dark:text-gray-400">Total Tax:</span>
-                <span className="text-sm font-medium text-gray-900 dark:text-white">₹{totalTax.toFixed(2)}</span>
+                <span className="text-sm font-medium text-gray-900 dark:text-white">${totalTax.toFixed(2)}</span>
               </div>
               <div className="flex justify-between border-t border-gray-200 dark:border-gray-700 pt-2">
                 <span className="text-base font-medium text-gray-900 dark:text-white">Total:</span>
-                <span className="text-lg font-bold text-gray-900 dark:text-white">₹{total.toFixed(2)}</span>
+                <span className="text-lg font-bold text-gray-900 dark:text-white">${total.toFixed(2)}</span>
               </div>
             </div>
           </div>

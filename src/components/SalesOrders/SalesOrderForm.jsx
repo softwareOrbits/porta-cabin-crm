@@ -28,9 +28,9 @@ const SalesOrderForm = ({ salesOrder = null, onSave, onCancel }) => {
 
   // Sample quotations for linking
   const availableQuotations = [
-    { id: 'QT-2024-001', customer: 'ABC Industries Ltd.', amount: '₹1,25,000' },
-    { id: 'QT-2024-002', customer: 'XYZ Corporation', amount: '₹2,50,000' },
-    { id: 'QT-2024-003', customer: 'Tech Solutions Pvt Ltd', amount: '₹75,000' }
+    { id: 'QT-2024-001', customer: 'ABC Industries Ltd.', amount: '$1,25,000' },
+    { id: 'QT-2024-002', customer: 'XYZ Corporation', amount: '$2,50,000' },
+    { id: 'QT-2024-003', customer: 'Tech Solutions Pvt Ltd', amount: '$75,000' }
   ];
 
   const handleFileUpload = (files) => {

@@ -115,7 +115,7 @@ export default function Payroll() {
             </div>
             <div className="ml-4">
               <h3 className="text-lg font-medium text-gray-900 dark:text-white">Gross Payroll</h3>
-              <p className="text-2xl font-bold text-green-600 dark:text-green-400">₹{totalGross.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-green-600 dark:text-green-400">${totalGross.toLocaleString()}</p>
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@ export default function Payroll() {
             </div>
             <div className="ml-4">
               <h3 className="text-lg font-medium text-gray-900 dark:text-white">Advances</h3>
-              <p className="text-2xl font-bold text-orange-600 dark:text-orange-400">₹{totalAdvances.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-orange-600 dark:text-orange-400">${totalAdvances.toLocaleString()}</p>
             </div>
           </div>
         </div>
@@ -139,7 +139,7 @@ export default function Payroll() {
             </div>
             <div className="ml-4">
               <h3 className="text-lg font-medium text-gray-900 dark:text-white">Net Payroll</h3>
-              <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">₹{totalNet.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">${totalNet.toLocaleString()}</p>
             </div>
           </div>
         </div>
@@ -204,30 +204,30 @@ export default function Payroll() {
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900 dark:text-white">₹{salary.earnedSalary.toFixed(0)}</div>
+                      <div className="text-sm text-gray-900 dark:text-white">${salary.earnedSalary.toFixed(0)}</div>
                       <div className="text-xs text-gray-500 dark:text-gray-400">
-                        Base: ₹{employee.totalSalary.toLocaleString()}
+                        Base: ${employee.totalSalary.toLocaleString()}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900 dark:text-white">₹{salary.overtimePay.toLocaleString()}</div>
+                      <div className="text-sm text-gray-900 dark:text-white">${salary.overtimePay.toLocaleString()}</div>
                       <div className="text-xs text-gray-500 dark:text-gray-400">
-                        {employee.overtimeHours}h @ ₹{employee.overtimeRate}/h
+                        {employee.overtimeHours}h @ ${employee.overtimeRate}/h
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm font-medium text-green-600 dark:text-green-400">
-                        ₹{salary.grossPay.toFixed(0)}
+                        ${salary.grossPay.toFixed(0)}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm text-red-600 dark:text-red-400">
-                        ₹{employee.advances.toLocaleString()}
+                        ${employee.advances.toLocaleString()}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm font-bold text-blue-600 dark:text-blue-400">
-                        ₹{salary.netSalary.toFixed(0)}
+                        ${salary.netSalary.toFixed(0)}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">

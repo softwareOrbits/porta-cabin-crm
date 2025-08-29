@@ -174,7 +174,7 @@ export default function Invoices() {
             </div>
             <div className="ml-4">
               <h3 className="text-lg font-medium text-gray-900 dark:text-white">Total Amount</h3>
-              <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">₹{totalAmount.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">${totalAmount.toLocaleString()}</p>
             </div>
           </div>
         </div>
@@ -186,7 +186,7 @@ export default function Invoices() {
             </div>
             <div className="ml-4">
               <h3 className="text-lg font-medium text-gray-900 dark:text-white">Received</h3>
-              <p className="text-2xl font-bold text-green-600 dark:text-green-400">₹{totalReceived.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-green-600 dark:text-green-400">${totalReceived.toLocaleString()}</p>
             </div>
           </div>
         </div>
@@ -198,7 +198,7 @@ export default function Invoices() {
             </div>
             <div className="ml-4">
               <h3 className="text-lg font-medium text-gray-900 dark:text-white">Pending</h3>
-              <p className="text-2xl font-bold text-red-600 dark:text-red-400">₹{totalPending.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-red-600 dark:text-red-400">${totalPending.toLocaleString()}</p>
             </div>
           </div>
         </div>
@@ -312,13 +312,13 @@ export default function Invoices() {
                     <div className="text-xs text-gray-500 dark:text-gray-400">Due: {invoice.dueDate}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-gray-900 dark:text-white">₹{invoice.amount.toLocaleString()}</div>
+                    <div className="text-sm font-medium text-gray-900 dark:text-white">${invoice.amount.toLocaleString()}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-green-600 dark:text-green-400">₹{invoice.paymentReceived.toLocaleString()}</div>
+                    <div className="text-sm text-green-600 dark:text-green-400">${invoice.paymentReceived.toLocaleString()}</div>
                     {invoice.remainingBalance > 0 && (
                       <div className="text-xs text-red-600 dark:text-red-400">
-                        Balance: ₹{invoice.remainingBalance.toLocaleString()}
+                        Balance: ${invoice.remainingBalance.toLocaleString()}
                       </div>
                     )}
                   </td>

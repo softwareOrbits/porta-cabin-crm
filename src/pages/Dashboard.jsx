@@ -19,7 +19,7 @@ const stats = [
   },
   {
     name: 'Pending Invoices',
-    stat: '₹1,24,000',
+    stat: '$1,24,000',
     icon: '📋',
     change: '-3.13%',
     changeType: 'decrease',
@@ -28,12 +28,12 @@ const stats = [
   },
   {
     name: 'Monthly Revenue',
-    stat: '₹8,45,000',
+    stat: '$8,45,000',
     icon: '💰',
     change: '+8.2%',
     changeType: 'increase',
     color: 'purple',
-    detail: 'Target: ₹10L'
+    detail: 'Target: $10L'
   },
   {
     name: 'Active Employees',
@@ -46,7 +46,7 @@ const stats = [
   },
   {
     name: 'Inventory Value',
-    stat: '₹28.5L',
+    stat: '$28.5L',
     icon: '📦',
     change: '+2.8%',
     changeType: 'increase',
@@ -347,8 +347,8 @@ export default function Dashboard() {
               {revenueData.map((data, index) => (
                 <div key={index} className="text-center flex-1">
                   <div className="text-xs font-medium text-gray-900 dark:text-white">{data.month}</div>
-                  <div className="text-xs text-blue-600 dark:text-blue-400">₹{(data.revenue / 100000).toFixed(1)}L</div>
-                  <div className="text-xs text-gray-500 dark:text-gray-400">₹{(data.target / 100000).toFixed(1)}L</div>
+                  <div className="text-xs text-blue-600 dark:text-blue-400">${(data.revenue / 100000).toFixed(1)}L</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">${(data.target / 100000).toFixed(1)}L</div>
                 </div>
               ))}
             </div>
