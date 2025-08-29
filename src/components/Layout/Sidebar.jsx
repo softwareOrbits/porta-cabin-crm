@@ -18,19 +18,15 @@ const navigation = [
   { name: 'Settings', href: '/settings', icon: '⚙️' },
 ];
 
-export default function Sidebar({ collapsed, setCollapsed, darkMode, setDarkMode }) {
+export default function Sidebar({ collapsed, setCollapsed }) {
   const location = useLocation();
 
   const toggleCollapse = () => {
     setCollapsed(!collapsed);
   };
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
-
   return (
-    <div className={`${collapsed ? 'w-16' : 'w-64'} bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 h-screen flex flex-col transition-all duration-300 ease-in-out`}>
+    <div className={`${collapsed ? 'w-16' : 'w-64'} bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 h-screen flex flex-col transition-all duration-300 ease-in-out overflow-y-auto scrollbar-hide`}>
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
         {!collapsed && (
@@ -54,7 +50,7 @@ export default function Sidebar({ collapsed, setCollapsed, darkMode, setDarkMode
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
+      <nav className="flex-1 p-3 space-y-1">
         {navigation.map((item) => {
           const isActive = location.pathname === item.href;
           return (
@@ -74,42 +70,6 @@ export default function Sidebar({ collapsed, setCollapsed, darkMode, setDarkMode
           );
         })}
       </nav>
-
-      {/* Footer */}
-      <div className="p-3 border-t border-gray-200 dark:border-gray-700">
-        {/* Dark Mode Toggle */}
-        <button
-          onClick={toggleDarkMode}
-          className={`w-full flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 ${collapsed ? 'justify-center' : ''}`}
-          title={collapsed ? (darkMode ? 'Light Mode' : 'Dark Mode') : ''}
-        >
-          {darkMode ? (
-            <span className="text-lg">☀️</span>
-          ) : (
-            <span className="text-lg">🌙</span>
-          )}
-          {!collapsed && <span className="ml-3">{darkMode ? 'Light Mode' : 'Dark Mode'}</span>}
-        </button>
-
-        {/* User Profile */}
-        <div className={`mt-3 flex items-center ${collapsed ? 'justify-center' : ''}`}>
-          {!collapsed ? (
-            <div className="flex items-center space-x-3 w-full">
-              <div className="w-8 h-8 bg-gray-300 dark:bg-gray-600 rounded-full flex items-center justify-center">
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">JD</span>
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-gray-900 dark:text-white truncate">John Doe</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400 truncate">Admin</p>
-              </div>
-            </div>
-          ) : (
-            <div className="w-8 h-8 bg-gray-300 dark:bg-gray-600 rounded-full flex items-center justify-center" title="John Doe - Admin">
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">JD</span>
-            </div>
-          )}
-        </div>
-      </div>
     </div>
   );
 }
