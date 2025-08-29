@@ -24,15 +24,15 @@ export default function Layout({ children, title }) {
   }, [darkMode]);
 
   return (
-    <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 grid grid-cols-[auto_1fr]">
       <Sidebar 
         collapsed={collapsed} 
         setCollapsed={setCollapsed}
       />
       
-      <div className="flex-1 flex flex-col">
+      <div className="flex flex-col min-w-0 overflow-hidden">
         <Header title={title} />
-        <main className="flex-1 p-6">
+        <main className="flex-1 p-6 overflow-auto">
           {children}
         </main>
         <Footer />
