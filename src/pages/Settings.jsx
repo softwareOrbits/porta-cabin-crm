@@ -9,7 +9,7 @@ export default function Settings() {
       companyPhone: '+91-9876543210',
       address: '123 Industrial Area, Manufacturing Zone',
       taxId: 'GSTIN123456789',
-      currency: 'INR'
+      currency: 'USD'
     },
     users: [
       {
@@ -146,8 +146,8 @@ export default function Settings() {
           onChange={(e) => handleSettingChange('general', 'currency', e.target.value)}
           className="block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
-          <option value="INR">INR (₹)</option>
           <option value="USD">USD ($)</option>
+          <option value="INR">INR (₹)</option>
           <option value="EUR">EUR (€)</option>
         </select>
       </div>

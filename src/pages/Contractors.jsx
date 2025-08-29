@@ -301,7 +301,7 @@ export default function Contractors() {
             </div>
             <div className="ml-4">
               <h3 className="text-lg font-medium text-gray-900 dark:text-white">Total Contracts</h3>
-              <p className="text-2xl font-bold text-green-600 dark:text-green-400">₹{totalValue.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-green-600 dark:text-green-400">${totalValue.toLocaleString()}</p>
             </div>
           </div>
         </div>
@@ -313,7 +313,7 @@ export default function Contractors() {
             </div>
             <div className="ml-4">
               <h3 className="text-lg font-medium text-gray-900 dark:text-white">Pending Payments</h3>
-              <p className="text-2xl font-bold text-red-600 dark:text-red-400">₹{pendingPayments.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-red-600 dark:text-red-400">${pendingPayments.toLocaleString()}</p>
             </div>
           </div>
         </div>
@@ -395,11 +395,11 @@ export default function Contractors() {
               </div>
               <div className="text-center">
                 <p className="text-xs text-gray-500 dark:text-gray-400">Total Value</p>
-                <p className="text-lg font-bold text-green-600 dark:text-green-400">₹{contractor.totalValue.toLocaleString()}</p>
+                <p className="text-lg font-bold text-green-600 dark:text-green-400">${contractor.totalValue.toLocaleString()}</p>
               </div>
               <div className="text-center">
                 <p className="text-xs text-gray-500 dark:text-gray-400">Pending</p>
-                <p className="text-lg font-bold text-red-600 dark:text-red-400">₹{contractor.pendingPayments.toLocaleString()}</p>
+                <p className="text-lg font-bold text-red-600 dark:text-red-400">${contractor.pendingPayments.toLocaleString()}</p>
               </div>
             </div>
 
@@ -419,8 +419,8 @@ export default function Contractors() {
                       </span>
                     </div>
                     <div className="flex justify-between mt-1">
-                      <span className="text-gray-500 dark:text-gray-400">Contract: ₹{project.contractValue.toLocaleString()}</span>
-                      <span className="text-red-600 dark:text-red-400">Pending: ₹{project.pendingAmount.toLocaleString()}</span>
+                      <span className="text-gray-500 dark:text-gray-400">Contract: ${project.contractValue.toLocaleString()}</span>
+                      <span className="text-red-600 dark:text-red-400">Pending: ${project.pendingAmount.toLocaleString()}</span>
                     </div>
                   </div>
                 ))}
@@ -668,7 +668,7 @@ export default function Contractors() {
               
               <div className="mb-4 p-3 bg-gray-50 dark:bg-gray-700 rounded">
                 <p className="text-sm text-gray-600 dark:text-gray-400">Project: {selectedProject.projectName}</p>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Pending: ₹{selectedProject.pendingAmount.toLocaleString()}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Pending: ${selectedProject.pendingAmount.toLocaleString()}</p>
               </div>
 
               <div className="space-y-4">

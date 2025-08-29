@@ -215,7 +215,7 @@ export default function Assets() {
             </div>
             <div className="ml-4">
               <h3 className="text-lg font-medium text-gray-900 dark:text-white">Purchase Value</h3>
-              <p className="text-2xl font-bold text-green-600 dark:text-green-400">₹{totalValue.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-green-600 dark:text-green-400">${totalValue.toLocaleString()}</p>
             </div>
           </div>
         </div>
@@ -227,7 +227,7 @@ export default function Assets() {
             </div>
             <div className="ml-4">
               <h3 className="text-lg font-medium text-gray-900 dark:text-white">Current Value</h3>
-              <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">₹{currentValue.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">${currentValue.toLocaleString()}</p>
             </div>
           </div>
         </div>
@@ -239,7 +239,7 @@ export default function Assets() {
             </div>
             <div className="ml-4">
               <h3 className="text-lg font-medium text-gray-900 dark:text-white">Depreciation</h3>
-              <p className="text-2xl font-bold text-red-600 dark:text-red-400">₹{totalDepreciation.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-red-600 dark:text-red-400">${totalDepreciation.toLocaleString()}</p>
             </div>
           </div>
         </div>
@@ -346,15 +346,15 @@ export default function Assets() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <p className="text-xs text-gray-500 dark:text-gray-400">Purchase Price</p>
-                  <p className="text-sm font-medium text-gray-900 dark:text-white">₹{asset.purchasePrice.toLocaleString()}</p>
+                  <p className="text-sm font-medium text-gray-900 dark:text-white">${asset.purchasePrice.toLocaleString()}</p>
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 dark:text-gray-400">Current Value</p>
-                  <p className="text-sm font-medium text-green-600 dark:text-green-400">₹{asset.currentValue.toLocaleString()}</p>
+                  <p className="text-sm font-medium text-green-600 dark:text-green-400">${asset.currentValue.toLocaleString()}</p>
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 dark:text-gray-400">Depreciated</p>
-                  <p className="text-sm font-medium text-red-600 dark:text-red-400">₹{(asset.purchasePrice - asset.currentValue).toLocaleString()}</p>
+                  <p className="text-sm font-medium text-red-600 dark:text-red-400">${(asset.purchasePrice - asset.currentValue).toLocaleString()}</p>
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 dark:text-gray-400">Useful Life</p>

@@ -308,15 +308,15 @@ export default function WorkOrders() {
               <div className="grid grid-cols-3 gap-2 text-center">
                 <div>
                   <p className="text-xs text-gray-500 dark:text-gray-400">Material</p>
-                  <p className="text-sm font-medium text-gray-900 dark:text-white">₹{workOrder.totalMaterialCost?.toLocaleString()}</p>
+                  <p className="text-sm font-medium text-gray-900 dark:text-white">${workOrder.totalMaterialCost?.toLocaleString()}</p>
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 dark:text-gray-400">Labor</p>
-                  <p className="text-sm font-medium text-gray-900 dark:text-white">₹{workOrder.totalLaborCost?.toLocaleString()}</p>
+                  <p className="text-sm font-medium text-gray-900 dark:text-white">${workOrder.totalLaborCost?.toLocaleString()}</p>
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 dark:text-gray-400">Total</p>
-                  <p className="text-sm font-bold text-blue-600 dark:text-blue-400">₹{workOrder.totalEstimatedCost?.toLocaleString()}</p>
+                  <p className="text-sm font-bold text-blue-600 dark:text-blue-400">${workOrder.totalEstimatedCost?.toLocaleString()}</p>
                 </div>
               </div>
             </div>

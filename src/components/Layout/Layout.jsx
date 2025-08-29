@@ -28,8 +28,6 @@ export default function Layout({ children, title }) {
       <Sidebar 
         collapsed={collapsed} 
         setCollapsed={setCollapsed}
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
       />
       
       <div className="flex-1 flex flex-col overflow-hidden">

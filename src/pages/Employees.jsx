@@ -359,7 +359,7 @@ export default function Employees() {
                     {employee.department}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                    ₹{calculateTotalSalary(employee.salary).toLocaleString()}
+                    ${calculateTotalSalary(employee.salary).toLocaleString()}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${statusColors[employee.status]}`}>
@@ -576,7 +576,7 @@ export default function Employees() {
                 </div>
                 <div className="mt-2 p-3 bg-blue-50 dark:bg-blue-900/50 rounded-lg">
                   <p className="text-sm text-blue-700 dark:text-blue-300">
-                    <strong>Total Salary: ₹{calculateTotalSalary(formData.salary).toLocaleString()}</strong>
+                    <strong>Total Salary: ${calculateTotalSalary(formData.salary).toLocaleString()}</strong>
                   </p>
                 </div>
               </div>
@@ -688,7 +688,7 @@ export default function Employees() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="bg-blue-50 dark:bg-blue-900/50 p-4 rounded-lg">
                   <div className="text-2xl font-bold text-blue-700 dark:text-blue-300">
-                    ₹{calculateTotalSalary(selectedEmployee.salary).toLocaleString()}
+                    ${calculateTotalSalary(selectedEmployee.salary).toLocaleString()}
                   </div>
                   <div className="text-sm text-blue-600 dark:text-blue-400">Total Salary</div>
                 </div>
@@ -747,19 +747,19 @@ export default function Employees() {
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600 dark:text-gray-400">Basic Salary:</span>
-                      <span className="text-gray-900 dark:text-white">₹{selectedEmployee.salary.basic?.toLocaleString()}</span>
+                      <span className="text-gray-900 dark:text-white">${selectedEmployee.salary.basic?.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600 dark:text-gray-400">Food Allowance:</span>
-                      <span className="text-gray-900 dark:text-white">₹{selectedEmployee.salary.foodAllowance?.toLocaleString()}</span>
+                      <span className="text-gray-900 dark:text-white">${selectedEmployee.salary.foodAllowance?.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600 dark:text-gray-400">Accommodation:</span>
-                      <span className="text-gray-900 dark:text-white">₹{selectedEmployee.salary.accommodationAllowance?.toLocaleString()}</span>
+                      <span className="text-gray-900 dark:text-white">${selectedEmployee.salary.accommodationAllowance?.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between border-t pt-2">
                       <span className="text-gray-900 dark:text-white font-medium">Total:</span>
-                      <span className="text-gray-900 dark:text-white font-medium">₹{calculateTotalSalary(selectedEmployee.salary).toLocaleString()}</span>
+                      <span className="text-gray-900 dark:text-white font-medium">${calculateTotalSalary(selectedEmployee.salary).toLocaleString()}</span>
                     </div>
                   </div>
                 </div>

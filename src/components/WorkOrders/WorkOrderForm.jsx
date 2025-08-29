@@ -510,7 +510,7 @@ const WorkOrderForm = ({ workOrder = null, onSave, onCancel }) => {
                     </td>
                     <td className="px-4 py-3">
                       <span className="text-sm font-medium text-gray-900 dark:text-white">
-                        ₹{(material.quantity * material.estimatedCost).toFixed(2)}
+                        ${(material.quantity * material.estimatedCost).toFixed(2)}
                       </span>
                     </td>
                     <td className="px-4 py-3">
@@ -531,7 +531,7 @@ const WorkOrderForm = ({ workOrder = null, onSave, onCancel }) => {
 
           <div className="mt-2 text-right">
             <span className="text-sm font-medium text-gray-900 dark:text-white">
-              Total Material Cost: ₹{calculateTotalMaterialCost().toFixed(2)}
+              Total Material Cost: ${calculateTotalMaterialCost().toFixed(2)}
             </span>
           </div>
         </div>
@@ -624,7 +624,7 @@ const WorkOrderForm = ({ workOrder = null, onSave, onCancel }) => {
                     </td>
                     <td className="px-4 py-3">
                       <span className="text-sm font-medium text-gray-900 dark:text-white">
-                        ₹{(labor.hoursAllocated * labor.hourlyRate).toFixed(2)}
+                        ${(labor.hoursAllocated * labor.hourlyRate).toFixed(2)}
                       </span>
                     </td>
                     <td className="px-4 py-3">
@@ -645,7 +645,7 @@ const WorkOrderForm = ({ workOrder = null, onSave, onCancel }) => {
 
           <div className="mt-2 text-right">
             <span className="text-sm font-medium text-gray-900 dark:text-white">
-              Total Labor Cost: ₹{calculateTotalLaborCost().toFixed(2)}
+              Total Labor Cost: ${calculateTotalLaborCost().toFixed(2)}
             </span>
           </div>
         </div>
@@ -728,15 +728,15 @@ const WorkOrderForm = ({ workOrder = null, onSave, onCancel }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="text-center">
               <p className="text-sm text-gray-500 dark:text-gray-400">Material Cost</p>
-              <p className="text-xl font-bold text-gray-900 dark:text-white">₹{calculateTotalMaterialCost().toFixed(2)}</p>
+              <p className="text-xl font-bold text-gray-900 dark:text-white">${calculateTotalMaterialCost().toFixed(2)}</p>
             </div>
             <div className="text-center">
               <p className="text-sm text-gray-500 dark:text-gray-400">Labor Cost</p>
-              <p className="text-xl font-bold text-gray-900 dark:text-white">₹{calculateTotalLaborCost().toFixed(2)}</p>
+              <p className="text-xl font-bold text-gray-900 dark:text-white">${calculateTotalLaborCost().toFixed(2)}</p>
             </div>
             <div className="text-center">
               <p className="text-sm text-gray-500 dark:text-gray-400">Total Estimated Cost</p>
-              <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">₹{(calculateTotalMaterialCost() + calculateTotalLaborCost()).toFixed(2)}</p>
+              <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">${(calculateTotalMaterialCost() + calculateTotalLaborCost()).toFixed(2)}</p>
             </div>
           </div>
         </div>

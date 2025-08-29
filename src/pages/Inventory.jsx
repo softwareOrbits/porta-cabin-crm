@@ -220,7 +220,7 @@ export default function Inventory() {
             </div>
             <div className="ml-4">
               <h3 className="text-lg font-medium text-gray-900 dark:text-white">Total Value</h3>
-              <p className="text-2xl font-bold text-green-600 dark:text-green-400">₹{calculateTotalValue().toLocaleString()}</p>
+              <p className="text-2xl font-bold text-green-600 dark:text-green-400">${calculateTotalValue().toLocaleString()}</p>
             </div>
           </div>
         </div>
@@ -360,11 +360,11 @@ export default function Inventory() {
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-gray-900 dark:text-white">₹{item.unitPrice.toLocaleString()}</div>
+                    <div className="text-sm font-medium text-gray-900 dark:text-white">${item.unitPrice.toLocaleString()}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm font-medium text-gray-900 dark:text-white">
-                      ₹{(item.quantity * item.unitPrice).toLocaleString()}
+                      ${(item.quantity * item.unitPrice).toLocaleString()}
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
