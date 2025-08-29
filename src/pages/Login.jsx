@@ -69,7 +69,7 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+    <div className="h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden flex flex-col">
       {/* Background Elements */}
       <div className="absolute inset-0">
         {/* Starfield effect */}
@@ -86,83 +86,85 @@ export default function Login() {
       </div>
 
       {/* Header with SoftwareOrbits Branding */}
-      <div className="relative z-10 p-6">
+      <div className="relative z-10 p-6 flex-shrink-0">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
-              <span className="text-white text-xl font-bold">SO</span>
-            </div>
+            <img 
+              src="https://softwareorbits.com/wp-content/uploads/2024/12/Software-Orbits-Logo.png" 
+              alt="SoftwareOrbits" 
+              className="w-10 h-10 object-contain"
+            />
             <div>
               <h1 className="text-white text-xl font-bold">SoftwareOrbits</h1>
               <p className="text-blue-200 text-xs">Transforming Ideas into Digital Reality</p>
             </div>
           </div>
           <div className="hidden md:flex items-center space-x-6 text-sm text-blue-200">
-            <a href="https://softwareorbits.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Portfolio</a>
-            <a href="https://softwareorbits.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Services</a>
-            <a href="https://softwareorbits.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Contact</a>
+            <a href="https://softwareorbits.com/case-studies" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Portfolio</a>
+            <a href="https://softwareorbits.com/services" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Services</a>
+            <a href="https://softwareorbits.com/contact-us/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Contact</a>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 flex items-center justify-center min-h-screen px-4 py-12">
+      <div className="relative z-10 flex-1 flex items-center justify-center px-4">
         <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Left Side - Feature Cards and Content */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-4">
             
             {/* Revenue Card */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-2xl max-w-sm">
-              <div className="flex items-center space-x-2 mb-4">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-2xl max-w-xs">
+              <div className="flex items-center space-x-2 mb-3">
                 <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span className="text-gray-600 text-sm font-medium">Total Revenue</span>
+                <span className="text-gray-600 text-sm font-medium">Project Success Rate</span>
               </div>
               <div className="mb-2">
-                <span className="text-3xl font-bold text-gray-900">$1,504,823</span>
-                <span className="text-gray-500">.46</span>
+                <span className="text-2xl font-bold text-gray-900">98.5</span>
+                <span className="text-gray-500">%</span>
               </div>
               <div className="flex items-center space-x-1 text-green-600 text-sm">
                 <span>↗</span>
-                <span>2.98%</span>
+                <span>+5.2%</span>
               </div>
             </div>
 
             {/* Main Hero Content */}
             <div className="text-white max-w-2xl">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+              <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
                 Maximize your Business
                 <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"> Potential</span>
               </h1>
-              <p className="text-xl text-blue-200 mb-8 leading-relaxed">
+              <p className="text-lg text-blue-200 mb-6 leading-relaxed">
                 Professional CRM solutions built with cutting-edge technology to streamline your operations and boost productivity.
               </p>
               
               {/* Feature highlights */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
                     <span className="text-blue-300">📊</span>
                   </div>
-                  <span className="text-blue-100">Advanced Analytics</span>
+                  <span className="text-blue-100 text-sm">Advanced Analytics</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">
                     <span className="text-purple-300">🚀</span>
                   </div>
-                  <span className="text-blue-100">Cloud-Based Solutions</span>
+                  <span className="text-blue-100 text-sm">Cloud-Based Solutions</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-indigo-500/20 rounded-lg flex items-center justify-center">
                     <span className="text-indigo-300">🔒</span>
                   </div>
-                  <span className="text-blue-100">Enterprise Security</span>
+                  <span className="text-blue-100 text-sm">Enterprise Security</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
                     <span className="text-blue-300">⚡</span>
                   </div>
-                  <span className="text-blue-100">Real-time Updates</span>
+                  <span className="text-blue-100 text-sm">Real-time Updates</span>
                 </div>
               </div>
             </div>
@@ -171,19 +173,19 @@ export default function Login() {
 
           {/* Right Side - Login Card */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-2xl w-full max-w-md border border-white/20">
+            <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-6 shadow-2xl w-full max-w-md border border-white/20">
               
               {/* Login Header */}
-              <div className="text-center mb-8">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white text-2xl">🏗️</span>
+              <div className="text-center mb-6">
+                <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white text-xl">🏗️</span>
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">Welcome to Porta Cabin CRM</h2>
-                <p className="text-gray-600">Sign in to your account</p>
+                <h2 className="text-xl font-bold text-gray-900 mb-1">Welcome to Porta Cabin CRM</h2>
+                <p className="text-gray-600 text-sm">Sign in to your account</p>
               </div>
 
               {/* Login Form */}
-              <form className="space-y-6" onSubmit={handleSubmit}>
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 {error && (
                   <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl">
                     <div className="flex items-center">
@@ -194,7 +196,7 @@ export default function Login() {
                 )}
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                     Email
                   </label>
                   <input
@@ -205,13 +207,13 @@ export default function Login() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl placeholder-gray-400 text-gray-900 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-xl placeholder-gray-400 text-gray-900 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                     placeholder="hi@example.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
                     Password
                   </label>
                   <input
@@ -222,7 +224,7 @@ export default function Login() {
                     required
                     value={formData.password}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl placeholder-gray-400 text-gray-900 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-xl placeholder-gray-400 text-gray-900 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                     placeholder="••••••••••••"
                   />
                 </div>
