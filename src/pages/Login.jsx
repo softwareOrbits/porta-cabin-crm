@@ -4,8 +4,8 @@ import { useAuth } from '../contexts/AuthContext';
 
 export default function Login() {
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: 'admin@portacabin.com',
+    password: 'admin123',
     rememberMe: false
   });
   const [loading, setLoading] = useState(false);
