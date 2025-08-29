@@ -90,9 +90,9 @@ export default function Login() {
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center space-x-3">
             <img 
-              src="https://softwareorbits.com/wp-content/uploads/2024/12/Software-Orbits-Logo.png" 
+              src="https://softwareorbits.com/wp-content/uploads/2025/02/Logo.svg" 
               alt="SoftwareOrbits" 
-              className="w-10 h-10 object-contain"
+              className="w-8 h-8 object-contain"
             />
             <div>
               <h1 className="text-white text-xl font-bold">SoftwareOrbits</h1>
