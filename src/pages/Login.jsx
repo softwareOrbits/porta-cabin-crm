@@ -69,27 +69,27 @@ export default function Login() {
   };
 
   return (
-    <div className="h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden flex flex-col">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        {/* Starfield effect */}
-        <div className="absolute top-20 left-10 w-1 h-1 bg-white rounded-full opacity-60"></div>
-        <div className="absolute top-32 right-20 w-1 h-1 bg-white rounded-full opacity-40"></div>
+        {/* Starfield effect - responsive positioning */}
+        <div className="absolute top-20 left-4 sm:left-10 w-1 h-1 bg-white rounded-full opacity-60"></div>
+        <div className="absolute top-32 right-8 sm:right-20 w-1 h-1 bg-white rounded-full opacity-40"></div>
         <div className="absolute top-48 left-1/4 w-1 h-1 bg-white rounded-full opacity-80"></div>
         <div className="absolute bottom-40 right-1/3 w-1 h-1 bg-white rounded-full opacity-50"></div>
         <div className="absolute bottom-20 left-1/2 w-1 h-1 bg-white rounded-full opacity-70"></div>
         
-        {/* Glowing orbs */}
-        <div className="absolute top-1/4 left-1/6 w-32 h-32 bg-blue-500/10 rounded-full blur-xl"></div>
-        <div className="absolute bottom-1/4 right-1/5 w-40 h-40 bg-purple-500/10 rounded-full blur-2xl"></div>
-        <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-indigo-500/10 rounded-full blur-lg"></div>
+        {/* Glowing orbs - responsive sizing */}
+        <div className="absolute top-1/4 left-1/6 w-16 h-16 sm:w-32 sm:h-32 bg-blue-500/10 rounded-full blur-xl"></div>
+        <div className="absolute bottom-1/4 right-1/5 w-20 h-20 sm:w-40 sm:h-40 bg-purple-500/10 rounded-full blur-2xl"></div>
+        <div className="absolute top-1/2 left-1/2 w-12 h-12 sm:w-24 sm:h-24 bg-indigo-500/10 rounded-full blur-lg"></div>
       </div>
 
       {/* Header with SoftwareOrbits Branding */}
-      <div className="relative z-10 p-6 flex-shrink-0">
+      <div className="relative z-10 p-4 sm:p-6 flex-shrink-0">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-white rounded-lg p-1 flex items-center justify-center">
+          <div className="flex items-center space-x-2 sm:space-x-3">
+            <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white rounded-lg p-1 flex items-center justify-center">
               <img 
                 src="https://softwareorbits.com/wp-content/uploads/2025/02/Logo.svg" 
                 alt="SoftwareOrbits" 
@@ -97,8 +97,8 @@ export default function Login() {
               />
             </div>
             <div>
-              <h1 className="text-white text-xl font-bold">SoftwareOrbits</h1>
-              <p className="text-blue-200 text-xs">Transforming Ideas into Digital Reality</p>
+              <h1 className="text-white text-lg sm:text-xl font-bold">SoftwareOrbits</h1>
+              <p className="text-blue-200 text-xs hidden sm:block">Transforming Ideas into Digital Reality</p>
             </div>
           </div>
           <div className="hidden md:flex items-center space-x-6 text-sm text-blue-200">
@@ -110,14 +110,14 @@ export default function Login() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 flex-1 flex items-center justify-center px-4">
-        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div className="relative z-10 flex-1 flex items-center justify-center px-4 py-6 sm:py-8">
+        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* Left Side - Feature Cards and Content */}
-          <div className="lg:col-span-7 space-y-4">
+          <div className="lg:col-span-7 space-y-3 sm:space-y-4 order-2 lg:order-1">
             
-            {/* Stats Card */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-2xl max-w-xs">
+            {/* Stats Card - hidden on small screens */}
+            <div className="hidden sm:block bg-white/90 backdrop-blur-sm rounded-2xl p-3 sm:p-4 shadow-2xl max-w-xs">
               <div className="flex items-center space-x-2 mb-3">
                 <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
                 <span className="text-gray-600 text-sm font-medium">Client Satisfaction</span>
@@ -134,54 +134,54 @@ export default function Login() {
 
             {/* Main Hero Content */}
             <div className="text-white max-w-2xl">
-              <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
                 Unlock Limitless Ways To Achieve
                 <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"> Digital Trust</span>
               </h1>
               
-              {/* Services Section */}
-              <div className="mb-6">
-                <p className="text-lg text-blue-200 mb-4 leading-relaxed">
+              {/* Services Section - simplified for mobile */}
+              <div className="mb-4 sm:mb-6">
+                <p className="text-base sm:text-lg text-blue-200 mb-3 sm:mb-4 leading-relaxed">
                   Services that includes:
                 </p>
-                <ul className="space-y-2 text-blue-100">
-                  <li className="flex items-center space-x-3">
-                    <div className="w-6 h-6 bg-purple-500/20 rounded-full flex items-center justify-center">
+                <ul className="space-y-1.5 sm:space-y-2 text-blue-100">
+                  <li className="flex items-center space-x-2 sm:space-x-3">
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-purple-500/20 rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-purple-300 text-xs">•</span>
                     </div>
-                    <span className="text-sm">Custom Application Development</span>
+                    <span className="text-xs sm:text-sm">Custom Application Development</span>
                   </li>
-                  <li className="flex items-center space-x-3">
-                    <div className="w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center">
+                  <li className="flex items-center space-x-2 sm:space-x-3">
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-blue-300 text-xs">•</span>
                     </div>
-                    <span className="text-sm">Mobile Application Development</span>
+                    <span className="text-xs sm:text-sm">Mobile Application Development</span>
                   </li>
-                  <li className="flex items-center space-x-3">
-                    <div className="w-6 h-6 bg-indigo-500/20 rounded-full flex items-center justify-center">
+                  <li className="flex items-center space-x-2 sm:space-x-3">
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-indigo-500/20 rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-indigo-300 text-xs">•</span>
                     </div>
-                    <span className="text-sm">Automations</span>
+                    <span className="text-xs sm:text-sm">Automations</span>
                   </li>
-                  <li className="flex items-center space-x-3">
-                    <div className="w-6 h-6 bg-purple-500/20 rounded-full flex items-center justify-center">
+                  <li className="flex items-center space-x-2 sm:space-x-3">
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-purple-500/20 rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-purple-300 text-xs">•</span>
                     </div>
-                    <span className="text-sm">AI Solutions</span>
+                    <span className="text-xs sm:text-sm">AI Solutions</span>
                   </li>
-                  <li className="flex items-center space-x-3">
-                    <div className="w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center">
+                  <li className="flex items-center space-x-2 sm:space-x-3">
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-blue-300 text-xs">•</span>
                     </div>
-                    <span className="text-sm">Enterprise Applications Development</span>
+                    <span className="text-xs sm:text-sm">Enterprise Applications Development</span>
                   </li>
                 </ul>
               </div>
 
-              {/* Agency Section */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold text-white mb-2">🚀 Leading Development Agency</h3>
-                <p className="text-blue-200 text-sm leading-relaxed">
+              {/* Agency Section - compressed for mobile */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-white/20">
+                <h3 className="text-base sm:text-lg font-semibold text-white mb-1 sm:mb-2">🚀 Leading Development Agency</h3>
+                <p className="text-blue-200 text-xs sm:text-sm leading-relaxed">
                   SoftwareOrbits is a premier software development agency specializing in cutting-edge digital solutions. 
                   We transform businesses through innovative technology, delivering scalable applications that drive growth and efficiency.
                 </p>
@@ -191,31 +191,31 @@ export default function Login() {
           </div>
 
           {/* Right Side - Login Card */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-6 shadow-2xl w-full max-w-md border border-white/20">
+          <div className="lg:col-span-5 flex justify-center lg:justify-end order-1 lg:order-2">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl w-full max-w-md border border-white/20">
               
               {/* Login Header */}
-              <div className="text-center mb-6">
-                <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-3">
-                  <span className="text-white text-xl">🏗️</span>
+              <div className="text-center mb-4 sm:mb-6">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                  <span className="text-white text-lg sm:text-xl">🏗️</span>
                 </div>
-                <h2 className="text-xl font-bold text-gray-900 mb-1">Welcome to Porta Cabin CRM</h2>
-                <p className="text-gray-600 text-sm">Sign in to your account</p>
+                <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-1">Welcome to Porta Cabin CRM</h2>
+                <p className="text-gray-600 text-xs sm:text-sm">Sign in to your account</p>
               </div>
 
               {/* Login Form */}
-              <form className="space-y-4" onSubmit={handleSubmit}>
+              <form className="space-y-3 sm:space-y-4" onSubmit={handleSubmit}>
                 {error && (
-                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl">
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-3 sm:px-4 py-2 sm:py-3 rounded-xl">
                     <div className="flex items-center">
                       <span className="mr-2">⚠️</span>
-                      <span className="text-sm">{error}</span>
+                      <span className="text-xs sm:text-sm">{error}</span>
                     </div>
                   </div>
                 )}
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                     Email
                   </label>
                   <input
@@ -226,13 +226,13 @@ export default function Login() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-xl placeholder-gray-400 text-gray-900 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-2.5 border border-gray-300 rounded-xl placeholder-gray-400 text-gray-900 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base"
                     placeholder="hi@example.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="password" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                     Password
                   </label>
                   <input
@@ -243,7 +243,7 @@ export default function Login() {
                     required
                     value={formData.password}
                     onChange={handleChange}
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-xl placeholder-gray-400 text-gray-900 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-2.5 border border-gray-300 rounded-xl placeholder-gray-400 text-gray-900 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base"
                     placeholder="••••••••••••"
                   />
                 </div>
@@ -256,13 +256,13 @@ export default function Login() {
                       type="checkbox"
                       checked={formData.rememberMe}
                       onChange={handleChange}
-                      className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                      className="h-3 w-3 sm:h-4 sm:w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                     />
-                    <label htmlFor="rememberMe" className="ml-2 block text-sm text-gray-700">
+                    <label htmlFor="rememberMe" className="ml-2 block text-xs sm:text-sm text-gray-700">
                       Remember Me
                     </label>
                   </div>
-                  <a href="#" className="text-sm font-medium text-blue-600 hover:text-blue-500">
+                  <a href="#" className="text-xs sm:text-sm font-medium text-blue-600 hover:text-blue-500">
                     Forgot Password
                   </a>
                 </div>
@@ -270,11 +270,11 @@ export default function Login() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium py-2.5 px-4 rounded-xl hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-[1.02]"
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium py-2 sm:py-2.5 px-4 rounded-xl hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-[1.02] text-sm sm:text-base"
                 >
                   {loading ? (
                     <div className="flex items-center justify-center">
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                      <div className="animate-spin rounded-full h-3 w-3 sm:h-4 sm:w-4 border-b-2 border-white mr-2"></div>
                       Signing in...
                     </div>
                   ) : (
@@ -284,20 +284,20 @@ export default function Login() {
               </form>
 
               {/* Demo Credentials */}
-              <div className="mt-6 pt-4 border-t border-gray-200">
+              <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-gray-200">
                 <p className="text-xs text-gray-500 text-center mb-2">Demo Credentials:</p>
                 <div className="space-y-1 text-xs text-gray-600">
-                  <div className="flex justify-between">
-                    <span>Admin:</span>
-                    <span>admin@portacabin.com / admin123</span>
+                  <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
+                    <span className="font-medium">Admin:</span>
+                    <span className="text-xs break-all">admin@portacabin.com / admin123</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span>Manager:</span>
-                    <span>john@portacabin.com / manager123</span>
+                  <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
+                    <span className="font-medium">Manager:</span>
+                    <span className="text-xs break-all">john@portacabin.com / manager123</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span>Customer Service:</span>
-                    <span>sarah@portacabin.com / customer123</span>
+                  <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
+                    <span className="font-medium">Customer Service:</span>
+                    <span className="text-xs break-all">sarah@portacabin.com / customer123</span>
                   </div>
                 </div>
               </div>
@@ -308,8 +308,8 @@ export default function Login() {
       </div>
 
       {/* Bottom Footer */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10">
-        <p className="text-sm text-blue-200">
+      <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 z-10 px-4">
+        <p className="text-xs sm:text-sm text-blue-200 text-center">
           Developed by{' '}
           <a 
             href="https://softwareorbits.com" 
