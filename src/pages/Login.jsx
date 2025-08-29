@@ -89,11 +89,13 @@ export default function Login() {
       <div className="relative z-10 p-6 flex-shrink-0">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center space-x-3">
-            <img 
-              src="https://softwareorbits.com/wp-content/uploads/2025/02/Logo.svg" 
-              alt="SoftwareOrbits" 
-              className="w-8 h-8 object-contain"
-            />
+            <div className="w-8 h-8 bg-white rounded-lg p-1 flex items-center justify-center">
+              <img 
+                src="https://softwareorbits.com/wp-content/uploads/2025/02/Logo.svg" 
+                alt="SoftwareOrbits" 
+                className="w-full h-full object-contain"
+              />
+            </div>
             <div>
               <h1 className="text-white text-xl font-bold">SoftwareOrbits</h1>
               <p className="text-blue-200 text-xs">Transforming Ideas into Digital Reality</p>
@@ -114,58 +116,75 @@ export default function Login() {
           {/* Left Side - Feature Cards and Content */}
           <div className="lg:col-span-7 space-y-4">
             
-            {/* Revenue Card */}
+            {/* Stats Card */}
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-2xl max-w-xs">
               <div className="flex items-center space-x-2 mb-3">
-                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span className="text-gray-600 text-sm font-medium">Project Success Rate</span>
+                <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                <span className="text-gray-600 text-sm font-medium">Client Satisfaction</span>
               </div>
               <div className="mb-2">
-                <span className="text-2xl font-bold text-gray-900">98.5</span>
+                <span className="text-2xl font-bold text-gray-900">100</span>
                 <span className="text-gray-500">%</span>
               </div>
               <div className="flex items-center space-x-1 text-green-600 text-sm">
-                <span>↗</span>
-                <span>+5.2%</span>
+                <span>⭐</span>
+                <span>5-Star Rating</span>
               </div>
             </div>
 
             {/* Main Hero Content */}
             <div className="text-white max-w-2xl">
-              <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-                Maximize your Business
-                <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"> Potential</span>
+              <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                Unlock Limitless Ways To Achieve
+                <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"> Digital Trust</span>
               </h1>
-              <p className="text-lg text-blue-200 mb-6 leading-relaxed">
-                Professional CRM solutions built with cutting-edge technology to streamline your operations and boost productivity.
-              </p>
               
-              {/* Feature highlights */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                    <span className="text-blue-300">📊</span>
-                  </div>
-                  <span className="text-blue-100 text-sm">Advanced Analytics</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                    <span className="text-purple-300">🚀</span>
-                  </div>
-                  <span className="text-blue-100 text-sm">Cloud-Based Solutions</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-indigo-500/20 rounded-lg flex items-center justify-center">
-                    <span className="text-indigo-300">🔒</span>
-                  </div>
-                  <span className="text-blue-100 text-sm">Enterprise Security</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                    <span className="text-blue-300">⚡</span>
-                  </div>
-                  <span className="text-blue-100 text-sm">Real-time Updates</span>
-                </div>
+              {/* Services Section */}
+              <div className="mb-6">
+                <p className="text-lg text-blue-200 mb-4 leading-relaxed">
+                  Services that includes:
+                </p>
+                <ul className="space-y-2 text-blue-100">
+                  <li className="flex items-center space-x-3">
+                    <div className="w-6 h-6 bg-purple-500/20 rounded-full flex items-center justify-center">
+                      <span className="text-purple-300 text-xs">•</span>
+                    </div>
+                    <span className="text-sm">Custom Application Development</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <div className="w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center">
+                      <span className="text-blue-300 text-xs">•</span>
+                    </div>
+                    <span className="text-sm">Mobile Application Development</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <div className="w-6 h-6 bg-indigo-500/20 rounded-full flex items-center justify-center">
+                      <span className="text-indigo-300 text-xs">•</span>
+                    </div>
+                    <span className="text-sm">Automations</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <div className="w-6 h-6 bg-purple-500/20 rounded-full flex items-center justify-center">
+                      <span className="text-purple-300 text-xs">•</span>
+                    </div>
+                    <span className="text-sm">AI Solutions</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <div className="w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center">
+                      <span className="text-blue-300 text-xs">•</span>
+                    </div>
+                    <span className="text-sm">Enterprise Applications Development</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Agency Section */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <h3 className="text-lg font-semibold text-white mb-2">🚀 Leading Development Agency</h3>
+                <p className="text-blue-200 text-sm leading-relaxed">
+                  SoftwareOrbits is a premier software development agency specializing in cutting-edge digital solutions. 
+                  We transform businesses through innovative technology, delivering scalable applications that drive growth and efficiency.
+                </p>
               </div>
             </div>
 
