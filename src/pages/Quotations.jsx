@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import QuotationForm from '../components/Quotations/QuotationForm';
 
-const quotations = [
+const initialQuotations = [
   {
     id: 'QT-2024-001',
     customer: 'ABC Industries Ltd.',
@@ -47,8 +48,11 @@ const statusColors = {
 };
 
 export default function Quotations() {
+  const [quotations, setQuotations] = useState(initialQuotations);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
+  const [showForm, setShowForm] = useState(false);
+  const [editingQuotation, setEditingQuotation] = useState(null);
 
   const filteredQuotations = quotations.filter(quotation => {
     const matchesSearch = quotation.customer.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -56,6 +60,69 @@ export default function Quotations() {
     const matchesStatus = statusFilter === 'all' || quotation.status === statusFilter;
     return matchesSearch && matchesStatus;
   });
+
+  const handleSaveQuotation = (quotationData, action) => {
+    if (editingQuotation) {
+      // Update existing quotation
+      setQuotations(prev => prev.map(q => 
+        q.id === editingQuotation.id ? quotationData : q
+      ));
+    } else {
+      // Add new quotation
+      setQuotations(prev => [...prev, quotationData]);
+    }
+    
+    setShowForm(false);
+    setEditingQuotation(null);
+    
+    // Show success message based on action
+    if (action === 'send') {
+      alert('Quotation sent to customer successfully!');
+    } else {
+      alert('Quotation saved as draft successfully!');
+    }
+  };
+
+  const handleEditQuotation = (quotation) => {
+    setEditingQuotation(quotation);
+    setShowForm(true);
+  };
+
+  const handleDeleteQuotation = (quotationId) => {
+    if (confirm('Are you sure you want to delete this quotation?')) {
+      setQuotations(prev => prev.filter(q => q.id !== quotationId));
+    }
+  };
+
+  const handleDuplicateQuotation = (quotation) => {
+    const duplicatedQuotation = {
+      ...quotation,
+      id: `QT-${new Date().getFullYear()}-${String(Date.now()).slice(-3)}`,
+      date: new Date().toISOString().split('T')[0],
+      status: 'draft',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+    setQuotations(prev => [...prev, duplicatedQuotation]);
+    alert('Quotation duplicated successfully!');
+  };
+
+  const handleCancelForm = () => {
+    setShowForm(false);
+    setEditingQuotation(null);
+  };
+
+  if (showForm) {
+    return (
+      <div className="space-y-6">
+        <QuotationForm
+          quotation={editingQuotation}
+          onSave={handleSaveQuotation}
+          onCancel={handleCancelForm}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -68,7 +135,10 @@ export default function Quotations() {
           </p>
         </div>
         <div className="mt-4 sm:mt-0">
-          <button className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+          <button 
+            onClick={() => setShowForm(true)}
+            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
             <span className="mr-2">➕</span>
             New Quotation
           </button>
@@ -170,13 +240,32 @@ export default function Quotations() {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <div className="flex items-center space-x-2">
-                      <button className="text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-300">
+                      <button 
+                        onClick={() => handleEditQuotation(quotation)}
+                        title="View/Edit"
+                        className="text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-300"
+                      >
                         <span className="text-lg">👁️</span>
                       </button>
-                      <button className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-300">
+                      <button 
+                        onClick={() => handleEditQuotation(quotation)}
+                        title="Edit"
+                        className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-300"
+                      >
                         <span className="text-lg">✏️</span>
                       </button>
-                      <button className="text-red-600 dark:text-red-400 hover:text-red-900 dark:hover:text-red-300">
+                      <button 
+                        onClick={() => handleDuplicateQuotation(quotation)}
+                        title="Duplicate"
+                        className="text-green-600 dark:text-green-400 hover:text-green-900 dark:hover:text-green-300"
+                      >
+                        <span className="text-lg">📋</span>
+                      </button>
+                      <button 
+                        onClick={() => handleDeleteQuotation(quotation.id)}
+                        title="Delete"
+                        className="text-red-600 dark:text-red-400 hover:text-red-900 dark:hover:text-red-300"
+                      >
                         <span className="text-lg">🗑️</span>
                       </button>
                     </div>
@@ -200,7 +289,10 @@ export default function Quotations() {
               Get started by creating a new quotation for your customers.
             </p>
             <div className="mt-6">
-              <button className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+              <button 
+                onClick={() => setShowForm(true)}
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
                 <span className="mr-2">➕</span>
                 New Quotation
               </button>
