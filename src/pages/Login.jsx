@@ -251,7 +251,7 @@ export default function Login() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium py-3 px-4 rounded-xl hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-[1.02]"
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium py-2.5 px-4 rounded-xl hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-[1.02]"
                 >
                   {loading ? (
                     <div className="flex items-center justify-center">
@@ -265,9 +265,9 @@ export default function Login() {
               </form>
 
               {/* Demo Credentials */}
-              <div className="mt-8 pt-6 border-t border-gray-200">
-                <p className="text-xs text-gray-500 text-center mb-3">Demo Credentials:</p>
-                <div className="space-y-2 text-xs text-gray-600">
+              <div className="mt-6 pt-4 border-t border-gray-200">
+                <p className="text-xs text-gray-500 text-center mb-2">Demo Credentials:</p>
+                <div className="space-y-1 text-xs text-gray-600">
                   <div className="flex justify-between">
                     <span>Admin:</span>
                     <span>admin@portacabin.com / admin123</span>
@@ -288,15 +288,19 @@ export default function Login() {
         </div>
       </div>
 
-      {/* Bottom Footer Links */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10">
-        <div className="flex items-center space-x-6 text-sm text-blue-200">
-          <a href="https://softwareorbits.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Careers</a>
-          <span>|</span>
-          <a href="https://softwareorbits.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Legal</a>
-          <span>|</span>
-          <a href="https://softwareorbits.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Support</a>
-        </div>
+      {/* Bottom Footer */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10">
+        <p className="text-sm text-blue-200">
+          Developed by{' '}
+          <a 
+            href="https://softwareorbits.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-white hover:text-blue-300 font-medium transition-colors"
+          >
+            SoftwareOrbits
+          </a>
+        </p>
       </div>
     </div>
   );
