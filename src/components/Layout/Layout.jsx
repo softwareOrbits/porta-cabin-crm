@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
 import Header from './Header';
+import Footer from './Footer';
 
 export default function Layout({ children, title }) {
   const [collapsed, setCollapsed] = useState(false);
@@ -36,6 +37,7 @@ export default function Layout({ children, title }) {
         <main className="flex-1 overflow-auto p-6">
           {children}
         </main>
+        <Footer />
       </div>
     </div>
   );

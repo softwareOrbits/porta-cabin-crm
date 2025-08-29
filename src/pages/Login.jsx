@@ -70,128 +70,205 @@ export default function Login() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        {/* Logo and Header */}
-        <div className="text-center">
-          <div className="mx-auto h-16 w-16 bg-blue-600 rounded-full flex items-center justify-center">
-            <span className="text-white text-2xl font-bold">🏗️</span>
-          </div>
-          <h2 className="mt-6 text-3xl font-extrabold text-gray-900 dark:text-white">
-            Porta Cabin CRM
-          </h2>
-          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-            Sign in to your account
-          </p>
-        </div>
-
-        {/* Login Form */}
-        <div className="bg-white dark:bg-gray-800 py-8 px-6 shadow-xl rounded-lg border border-gray-200 dark:border-gray-700">
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            {error && (
-              <div className="bg-red-50 dark:bg-red-900/50 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 px-4 py-3 rounded-lg">
-                <div className="flex items-center">
-                  <span className="mr-2">⚠️</span>
-                  <span className="text-sm">{error}</span>
-                </div>
+      <div className="max-w-6xl w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          {/* Left Column - SoftwareOrbits Branding */}
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700">
+            <div className="text-center">
+              <div className="mx-auto h-20 w-20 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center mb-6">
+                <span className="text-white text-3xl font-bold">🚀</span>
               </div>
-            )}
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Email Address
-              </label>
-              <div className="mt-1">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="appearance-none block w-full px-3 py-3 border border-gray-300 dark:border-gray-600 rounded-lg placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10"
-                  placeholder="Enter your email"
-                />
-              </div>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                SoftwareOrbits
+              </h1>
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                Transforming Ideas into Digital Reality
+              </p>
             </div>
 
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Password
-              </label>
-              <div className="mt-1">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="current-password"
-                  required
-                  value={formData.password}
-                  onChange={handleChange}
-                  className="appearance-none block w-full px-3 py-3 border border-gray-300 dark:border-gray-600 rounded-lg placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10"
-                  placeholder="Enter your password"
-                />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="rememberMe"
-                  name="rememberMe"
-                  type="checkbox"
-                  checked={formData.rememberMe}
-                  onChange={handleChange}
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 dark:border-gray-600 rounded"
-                />
-                <label htmlFor="rememberMe" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
-                  Remember me
-                </label>
+            <div className="space-y-6">
+              <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">🌟 About Us</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                  We specialize in creating cutting-edge software solutions that drive business growth. 
+                  From web applications to mobile apps, we deliver innovative technology solutions 
+                  tailored to your needs.
+                </p>
               </div>
 
-              <div className="text-sm">
-                <a href="#" className="font-medium text-blue-600 dark:text-blue-400 hover:text-blue-500">
-                  Forgot your password?
+              <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">💼 Our Services</h3>
+                <ul className="text-gray-600 dark:text-gray-300 text-sm space-y-2">
+                  <li className="flex items-center">
+                    <span className="mr-2">✅</span>
+                    Custom Web Application Development
+                  </li>
+                  <li className="flex items-center">
+                    <span className="mr-2">✅</span>
+                    Mobile App Development
+                  </li>
+                  <li className="flex items-center">
+                    <span className="mr-2">✅</span>
+                    Enterprise Software Solutions
+                  </li>
+                  <li className="flex items-center">
+                    <span className="mr-2">✅</span>
+                    CRM & Business Management Systems
+                  </li>
+                </ul>
+              </div>
+
+              <div className="text-center">
+                <a 
+                  href="https://softwareorbits.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-200 transform hover:scale-105"
+                >
+                  <span className="mr-2">🌐</span>
+                  Visit Our Website
                 </a>
               </div>
             </div>
+          </div>
 
-            <div>
-              <button
-                type="submit"
-                disabled={loading}
-                className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-              >
-                {loading ? (
-                  <div className="flex items-center">
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                    Signing in...
-                  </div>
-                ) : (
-                  'Sign in'
-                )}
-              </button>
+          {/* Right Column - Login Form */}
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700">
+            {/* Logo and Header */}
+            <div className="text-center mb-8">
+              <div className="mx-auto h-16 w-16 bg-blue-600 rounded-full flex items-center justify-center">
+                <span className="text-white text-2xl font-bold">🏗️</span>
+              </div>
+              <h2 className="mt-6 text-3xl font-extrabold text-gray-900 dark:text-white">
+                Porta Cabin CRM
+              </h2>
+              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                Sign in to your account
+              </p>
             </div>
-          </form>
+            
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              {error && (
+                <div className="bg-red-50 dark:bg-red-900/50 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 px-4 py-3 rounded-lg">
+                  <div className="flex items-center">
+                    <span className="mr-2">⚠️</span>
+                    <span className="text-sm">{error}</span>
+                  </div>
+                </div>
+              )}
 
-          {/* Demo Credentials */}
-          <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-600">
-            <p className="text-xs text-gray-500 dark:text-gray-400 text-center mb-3">Demo Credentials:</p>
-            <div className="space-y-2 text-xs text-gray-600 dark:text-gray-400">
-              <div className="flex justify-between">
-                <span>Admin:</span>
-                <span>admin@portacabin.com / admin123</span>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Email Address
+                </label>
+                <div className="mt-1">
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="appearance-none block w-full px-3 py-3 border border-gray-300 dark:border-gray-600 rounded-lg placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10"
+                    placeholder="Enter your email"
+                  />
+                </div>
               </div>
-              <div className="flex justify-between">
-                <span>Manager:</span>
-                <span>john@portacabin.com / manager123</span>
+
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Password
+                </label>
+                <div className="mt-1">
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    autoComplete="current-password"
+                    required
+                    value={formData.password}
+                    onChange={handleChange}
+                    className="appearance-none block w-full px-3 py-3 border border-gray-300 dark:border-gray-600 rounded-lg placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10"
+                    placeholder="Enter your password"
+                  />
+                </div>
               </div>
-              <div className="flex justify-between">
-                <span>Customer Service:</span>
-                <span>sarah@portacabin.com / customer123</span>
+
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <input
+                    id="rememberMe"
+                    name="rememberMe"
+                    type="checkbox"
+                    checked={formData.rememberMe}
+                    onChange={handleChange}
+                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 dark:border-gray-600 rounded"
+                  />
+                  <label htmlFor="rememberMe" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
+                    Remember me
+                  </label>
+                </div>
+
+                <div className="text-sm">
+                  <a href="#" className="font-medium text-blue-600 dark:text-blue-400 hover:text-blue-500">
+                    Forgot your password?
+                  </a>
+                </div>
+              </div>
+
+              <div>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  {loading ? (
+                    <div className="flex items-center">
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                      Signing in...
+                    </div>
+                  ) : (
+                    'Sign in'
+                  )}
+                </button>
+              </div>
+            </form>
+
+            {/* Demo Credentials */}
+            <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-600">
+              <p className="text-xs text-gray-500 dark:text-gray-400 text-center mb-3">Demo Credentials:</p>
+              <div className="space-y-2 text-xs text-gray-600 dark:text-gray-400">
+                <div className="flex justify-between">
+                  <span>Admin:</span>
+                  <span>admin@portacabin.com / admin123</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Manager:</span>
+                  <span>john@portacabin.com / manager123</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Customer Service:</span>
+                  <span>sarah@portacabin.com / customer123</span>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+        
+        {/* Footer with SoftwareOrbits branding for login page */}
+        <div className="mt-8 text-center">
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            Developed by{' '}
+            <a 
+              href="https://softwareorbits.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
+            >
+              SoftwareOrbits
+            </a>
+          </p>
         </div>
       </div>
     </div>
