@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,8 +42,8 @@ export default function Login() {
                       ['quotations', 'customers']
         };
 
-        localStorage.setItem('isAuthenticated', 'true');
-        localStorage.setItem('userData', JSON.stringify(userData));
+        // Use the AuthContext login method to properly set authentication state
+        login(userData);
         
         if (formData.rememberMe) {
           localStorage.setItem('rememberMe', 'true');
