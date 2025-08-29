@@ -1,0 +1,23 @@
+# Porta Cabin CRM - Cursor Rules
+
+## Node.js Version
+- ALWAYS use Node.js version 22 for this project
+- NEVER use Node.js 18 or any other version
+- Before running any npm commands, ensure you're using Node.js 22 with: `nvm use 22`
+- The project requires Node.js 22+ due to Vite and React Router dependencies
+
+## Project Setup
+- This is a React CRM application built with Vite
+- Uses React Router for navigation
+- Styled with Tailwind CSS
+- All Heroicons have been replaced with emoji icons to avoid dependency issues
+
+## Commands
+- Development: `npm run dev` (requires Node.js 22)
+- Build: `npm run build` (requires Node.js 22)
+- Install: `npm install` (requires Node.js 22)
+
+## Important Notes
+- If you see Node.js version errors, run `nvm use 22` first
+- The project has been optimized to work with Node.js 22 and minimal dependencies
+- All components use emoji icons instead of Heroicons for simplicity

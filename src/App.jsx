@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout/Layout';
+import Dashboard from './pages/Dashboard';
+import Quotations from './pages/Quotations';
+import SalesOrders from './pages/SalesOrders';
+import Projects from './pages/Projects';
+import WorkOrders from './pages/WorkOrders';
+import Invoices from './pages/Invoices';
+import Inventory from './pages/Inventory';
+import Payroll from './pages/Payroll';
+import Contractors from './pages/Contractors';
+import Assets from './pages/Assets';
+import Reports from './pages/Reports';
+import Settings from './pages/Settings';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout title="Dashboard"><Dashboard /></Layout>} />
+        <Route path="/quotations" element={<Layout title="Quotations"><Quotations /></Layout>} />
+        <Route path="/sales-orders" element={<Layout title="Sales Orders"><SalesOrders /></Layout>} />
+        <Route path="/projects" element={<Layout title="Projects"><Projects /></Layout>} />
+        <Route path="/work-orders" element={<Layout title="Work Orders"><WorkOrders /></Layout>} />
+        <Route path="/invoices" element={<Layout title="Invoices"><Invoices /></Layout>} />
+        <Route path="/inventory" element={<Layout title="Inventory / Store"><Inventory /></Layout>} />
+        <Route path="/payroll" element={<Layout title="Payroll & HR"><Payroll /></Layout>} />
+        <Route path="/contractors" element={<Layout title="Contractors"><Contractors /></Layout>} />
+        <Route path="/assets" element={<Layout title="Assets"><Assets /></Layout>} />
+        <Route path="/reports" element={<Layout title="Reports"><Reports /></Layout>} />
+        <Route path="/settings" element={<Layout title="Settings"><Settings /></Layout>} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App
