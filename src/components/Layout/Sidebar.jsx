@@ -26,7 +26,7 @@ export default function Sidebar({ collapsed, setCollapsed }) {
   };
 
   return (
-    <div className={`${collapsed ? 'w-16' : 'w-64'} bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 min-h-screen flex flex-col transition-all duration-300 ease-in-out overflow-y-auto scrollbar-hide`}>
+    <div className={`${collapsed ? 'w-16' : 'w-64'} bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 min-h-screen flex flex-col transition-all duration-300 ease-in-out overflow-y-auto scrollbar-hide flex-shrink-0`}>
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
         {!collapsed && (
